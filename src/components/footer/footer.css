@@ -1,0 +1,36 @@
+.fleury-footer {
+	border-top: #e0e0e0 1px solid;
+	bottom: 0;
+	flex-shrink: 0;
+	height: 100px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	align-items: center;
+	display: flex;
+	padding: 0px 145px;
+}
+
+.fleury-footer .image-fleury-logo {
+	height: 27.156px;
+	width: 95.999px;
+}
+
+.fleury-footer-text {
+	/* font-family: Signika; */
+	color: #757575;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: right;
+}
+
+.fleury-footer-text > b {
+	/* font-family: Signika; */
+	color: #757575;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 18px;
+}
