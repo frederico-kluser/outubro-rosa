@@ -52,6 +52,7 @@
 }
 
 .buttons-container {
+	align-items: center;
 	display: flex;
 	gap: 24px;
 	margin-right: 145px;
