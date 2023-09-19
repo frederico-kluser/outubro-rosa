@@ -3,19 +3,23 @@
 	background-color: transparent;
 	border-radius: 25px;
 	display: flex;
-	/* font-family: Signika; */
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 400;
 	gap: 10px;
 	height: 26px;
 	justify-content: center;
-	line-height: 24px;
 	padding: 12px 24px;
-	/* 150% */
 }
 
 .button--outline {
 	border: 1px solid #ea1b23;
 	color: #ea1b23;
+}
+
+.button--link {
+	border: none;
+	gap: 8px;
+	padding: 0px;
+}
+
+.button--disabled {
+	opacity: 0;
 }
