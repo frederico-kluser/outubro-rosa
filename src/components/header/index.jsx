@@ -16,7 +16,7 @@ const Header = () => (
 			</div>
 			<div className="buttons-container">
 				<Button text="Instruções de preparo" isOutline />
-				<Button text="Entrar" />
+				<Button text="Sair" iconName="exit" isLink disabled />
 			</div>
 		</Container>
 	</header>
