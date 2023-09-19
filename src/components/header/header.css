@@ -1,0 +1,58 @@
+.fleury-header {
+	align-items: center;
+	border-bottom: 1px solid #e0e0e0;
+	display: flex;
+	flex-direction: row;
+	flex-shrink: 0;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	width: 100%;
+	/* width: 1366px; */
+}
+
+.logos-container {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	gap: 58.78px;
+	margin-left: 126px;
+}
+
+.logo-container {
+	align-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-shrink: 0;
+	flex-wrap: wrap;
+	height: 70px;
+	justify-content: center;
+	position: relative;
+	width: 165.333px;
+}
+
+.image-fleury-logo {
+	height: 35.203px;
+	width: 123.999px;
+}
+
+.image-outubro-rosa-logo {
+	flex-shrink: 0;
+	height: 46.667px;
+	width: 46.667px;
+}
+
+.horizontal-divisor {
+	background: #ea1b23;
+	height: 25px;
+	position: absolute;
+	right: 0px;
+	width: 1px;
+}
+
+.buttons-container {
+	display: flex;
+	gap: 24px;
+	margin-right: 145px;
+}
