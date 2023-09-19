@@ -9,10 +9,10 @@ const Header = () => (
 		<Container>
 			<div className="logos-container">
 				<div className="logo-container">
-					<img alt="Grupo Fleury" className="image-fleury-logo" src={FleuryLogo} />
+					<img alt="Grupo Fleury" className="image-fleury-logo clickEffect" src={FleuryLogo} />
 					<div className="horizontal-divisor" />
 				</div>
-				<img alt="Outubro Rosa Logo" className="image-outubro-rosa-logo" src={OutubroRosaLogo} />
+				<img alt="Outubro Rosa Logo" className="image-outubro-rosa-logo clickEffect" src={OutubroRosaLogo} />
 			</div>
 			<div className="buttons-container">
 				<Button text="Instruções de preparo" isOutline />
