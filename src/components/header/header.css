@@ -8,6 +8,10 @@
 	line-height: 70px;
 	text-align: center;
 	width: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	z-index: 1;
 	/* width: 1366px; */
 }
 
@@ -32,7 +36,7 @@
 	width: 165.333px;
 }
 
-.image-fleury-logo {
+.fleury-header .image-fleury-logo {
 	height: 35.203px;
 	width: 123.999px;
 }

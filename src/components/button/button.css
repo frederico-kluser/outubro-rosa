@@ -1,11 +1,17 @@
 .button {
+	/* font-family: Signika; */
 	align-items: center;
 	background-color: transparent;
 	border-radius: 25px;
 	display: flex;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
 	gap: 10px;
 	height: 26px;
 	justify-content: center;
+	line-height: 24px;
+	/* 150% */
 	padding: 12px 24px;
 }
 
