@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import './button.css';
 import Icon from '../icon';
-import ClickEffect from '../clickEffect';
 
 const Button = ({ text, isOutline, isLink, iconName, disabled }) => {
 	let className = isOutline ? 'button button--outline' : 'button';
@@ -9,12 +8,10 @@ const Button = ({ text, isOutline, isLink, iconName, disabled }) => {
 	className = disabled ? 'button button--disabled' : className;
 
 	return (
-		<ClickEffect>
-			<button className={className} disabled={disabled}>
-				{iconName && <Icon iconName={iconName} />}
-				{text}
-			</button>
-		</ClickEffect>
+		<button className={`${className} clickEffect`} disabled={disabled}>
+			{iconName && <Icon iconName={iconName} />}
+			{text}
+		</button>
 	);
 };
 
