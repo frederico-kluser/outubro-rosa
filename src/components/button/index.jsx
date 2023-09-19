@@ -5,7 +5,7 @@ import Icon from '../icon';
 const Button = ({ text, isOutline, isLink, iconName, disabled }) => {
 	let className = isOutline ? 'button button--outline' : 'button';
 	className = isLink ? 'button button--link' : className;
-	className = disabled ? 'button button--disabled' : className;
+	className = disabled ? `${className} button--disabled` : className;
 
 	return (
 		<button className={`${className} clickEffect`} disabled={disabled}>
