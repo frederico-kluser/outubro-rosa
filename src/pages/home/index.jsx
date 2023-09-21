@@ -1,9 +1,11 @@
-import './home.css';
+import { useState } from 'react';
+import OutubroRosaPromo from '../../assets/outubro-rosa-promo.jpeg';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Container from '../../components/container';
 import Input from '../../components/input';
-import { useState } from 'react';
+import Button from '../../components/button';
+import './home.css';
 
 const Home = () => {
 	const [email, setEmail] = useState('');
@@ -23,10 +25,21 @@ const Home = () => {
 								<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} />
 								<Input placeholder="Senha" setValue={setPassword} type="password" value={password} />
 							</div>
-							<button className="button">Entrar</button>
+							<Button text="Entrar" isCondensed />
 						</div>
 					</div>
-					<div></div>
+					<div className="column-size reverse">
+						<div className="container-promo">
+							<div className="background"></div>
+							<div
+								className="image"
+								style={{
+									backgroundImage: `url(${OutubroRosaPromo})`,
+								}}
+							></div>
+							{/* <img src={OutubroRosaPromo} alt="Outubro Rosa Promotion Image" /> */}
+						</div>
+					</div>
 				</Container>
 			</section>
 			<Footer />

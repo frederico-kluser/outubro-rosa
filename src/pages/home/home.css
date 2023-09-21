@@ -28,3 +28,39 @@
 	line-height: 24px;
 	/* 150% */
 }
+
+.body .container-promo {
+	flex-shrink: 0;
+	height: 371px;
+	width: 460px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.container-promo * {
+	position: absolute;
+}
+
+.container-promo .background {
+	background: rgba(191, 18, 24, 0.3);
+	border-radius: 29px;
+	flex-shrink: 0;
+	height: 371px;
+	width: 340px;
+}
+
+.container-promo .image {
+	background-position: -144.15px -24.057px;
+	background-repeat: no-repeat;
+	background-size: 172.754% 164.548%;
+	border-radius: 30px;
+	flex-shrink: 0;
+	height: 322px;
+	width: 460px;
+}
+
+.body .reverse {
+	display: flex;
+	flex-direction: row-reverse;
+}
