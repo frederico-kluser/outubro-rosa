@@ -26,6 +26,28 @@
 	padding: 0px;
 }
 
+.button--condensed {
+	/* 150% */
+	/* Desktop/H5 R 16 */
+	/* font-family: Signika; */
+	align-items: center;
+	background: #ea1b23;
+	border-radius: 25px;
+	border: none;
+	color: #fff;
+	display: flex;
+	flex-shrink: 0;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	gap: 10px;
+	height: 48px;
+	justify-content: center;
+	line-height: 24px;
+	padding: 16px 42px;
+	text-align: center;
+}
+
 .button--disabled {
 	opacity: 0 !important;
 }
