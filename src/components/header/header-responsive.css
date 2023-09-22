@@ -1,0 +1,31 @@
+@media (max-width: 768px) {
+	.logos-container {
+		margin-left: 0;
+	}
+	.logo-container {
+		width: 118.095px;
+		height: 50px;
+	}
+	.fleury-header .image-fleury-logo {
+		width: 88.571px;
+		height: 25.145px;
+	}
+	.horizontal-divisor {
+		height: 20px;
+	}
+	.logos-container {
+		gap: 46.9px;
+	}
+	.image-outubro-rosa-logo {
+		width: 25px;
+		height: 25px;
+	}
+	.buttons-container {
+		display: none;
+	}
+	.menu-container {
+		align-items: center;
+		display: flex;
+		padding-right: 16px;
+	}
+}

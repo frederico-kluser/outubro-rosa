@@ -61,3 +61,7 @@
 	gap: 24px;
 	margin-right: 145px;
 }
+
+.menu-container {
+	display: none;
+}
