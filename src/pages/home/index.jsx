@@ -6,10 +6,12 @@ import Container from '../../components/container';
 import Input from '../../components/input';
 import Button from '../../components/button';
 import './home.css';
+import Warning from '../../components/warning';
 
 const Home = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [error] = useState(false);
 
 	return (
 		<div>
@@ -18,7 +20,15 @@ const Home = () => {
 				<Container>
 					<div className="column-size">
 						<h1>Outubro Rosa</h1>
-						<div className="mt-32" />
+						{error ? (
+							<>
+								<div className="mt-24" />
+								<Warning text="Dados incorretos. Por favor, tente de novo" />
+								<div className="mt-16" />
+							</>
+						) : (
+							<div className="mt-32" />
+						)}
 						<div className="container-16">
 							<p>Vamos começar com o e-mail e a senha</p>
 							<div className="input-container">
