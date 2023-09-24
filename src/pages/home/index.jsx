@@ -10,20 +10,34 @@ import Template from '../../components/template';
 const Home = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [error] = useState(false);
+	const [error] = useState(true);
 
 	return (
 		<Template>
 			<div className="column-size">
 				<h1>Outubro Rosa</h1>
+				<div className="mt-24 mobile" />
+				<div className="container-promo mobile">
+					<div className="background"></div>
+					<div
+						className="image"
+						style={{
+							backgroundImage: `url(${OutubroRosaPromo})`,
+						}}
+					></div>
+				</div>
 				{error ? (
 					<>
 						<div className="mt-24" />
 						<Warning text="Dados incorretos. Por favor, tente de novo" />
-						<div className="mt-16" />
+						<div className="mt-16 desktop" />
+						<div className="mt-24 mobile" />
 					</>
 				) : (
-					<div className="mt-32" />
+					<>
+						<div className="mt-24 mobile" />
+						<div className="mt-32 desktop" />
+					</>
 				)}
 				<div className="container-16">
 					<p>Vamos começar com o e-mail e a senha</p>
@@ -43,7 +57,6 @@ const Home = () => {
 							backgroundImage: `url(${OutubroRosaPromo})`,
 						}}
 					></div>
-					{/* <img src={OutubroRosaPromo} alt="Outubro Rosa Promotion Image" /> */}
 				</div>
 			</div>
 		</Template>
