@@ -70,3 +70,25 @@ body {
 .mt-32 {
 	margin-top: 32px;
 }
+
+.mobile {
+	display: none !important;
+}
+
+.desktop {
+	display: flex !important;
+}
+
+@media screen and (max-width: 768px) {
+	.mobile {
+		display: flex !important;
+	}
+	.desktop {
+		display: none !important;
+	}
+	.column-size {
+		width: 100%;
+	}
+}
+
+/* 1106 */
