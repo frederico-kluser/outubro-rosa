@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './input.css';
+import './input-responsive.css';
 
 const Input = ({ caption, placeholder, setValue, type, value }) => (
 	<div className="input-group">
