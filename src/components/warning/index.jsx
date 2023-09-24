@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import InformationIcon from '../../assets/information-icon.svg';
 import './warning.css';
+import './warning-responsive.css';
 
 const Warning = ({ text }) => (
 	<div className="warning">
