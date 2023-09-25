@@ -3,11 +3,9 @@ import OutubroRosaPromo from '../../assets/outubro-rosa-promo.jpeg';
 import Input from '../../components/input';
 import Button from '../../components/button';
 import Warning from '../../components/warning';
+import Template from '../../components/template';
 import './home.css';
 import './home-responsive.css';
-import Template from '../../components/template';
-import Checkbox from '../../components/checkbox';
-import Radio from '../../components/radio';
 
 const Home = () => {
 	const [email, setEmail] = useState('');
@@ -44,25 +42,7 @@ const Home = () => {
 				<div className="container-16">
 					<p>Vamos começar com o e-mail e a senha</p>
 					<div className="input-container">
-						<Checkbox text="Lembrar-me" onChange={(value) => console.log(value)} />
-						<Radio texts={['Lembrar-me', 'Lembrar-me']} onChange={(value) => console.log(value)} />
 						<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} />
-						<Input
-							error="Nome completo"
-							caption="exemplo@nome.com"
-							placeholder="E-mail"
-							setValue={setEmail}
-							type="email"
-							value={email}
-						/>
-						<Input
-							info="Nome completo"
-							caption="exemplo@nome.com"
-							placeholder="E-mail"
-							setValue={setEmail}
-							type="email"
-							value={email}
-						/>
 						<Input placeholder="Senha" setValue={setPassword} type="password" value={password} />
 					</div>
 					<Button text="Entrar" isCondensed />
