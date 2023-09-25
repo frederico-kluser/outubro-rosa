@@ -22,6 +22,35 @@
 	width: 100%;
 }
 
+.input-group.error .input {
+	border: 1px solid #ea1b23;
+}
+
+.input-group.info .input {
+	border: 1px solid #8e24aa;
+}
+
+.input-group.error p,
+.input-group.info p {
+	color: #ea1b23 !important;
+	/* Desktop/B2 R 12 */
+	/* font-family: Signika; */
+	font-size: 12px !important;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px !important;
+	/* 150% */
+	position: absolute;
+	top: -3px;
+	left: 12px;
+	padding: 0px 4px;
+	background-color: #ffffff;
+}
+
+.input-group.info p {
+	color: #8e24aa !important;
+}
+
 .input-group .span {
 	/* 150% */
 	/* font-family: Signika; */
@@ -32,5 +61,14 @@
 	font-weight: 400;
 	left: 8px;
 	line-height: 18px;
+	position: absolute;
+}
+
+.input-group .span.info {
+	color: #8e24aa;
+}
+
+.input-group .info-image {
+	right: 12px;
 	position: absolute;
 }

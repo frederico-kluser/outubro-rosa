@@ -1,8 +1,8 @@
 import FleuryLogo from '../../assets/grupo-fleury-logo.svg';
 import OutubroRosaLogo from '../../assets/outubro-rosa-logo.png';
-import MenuIcon from '../../assets/menu.svg';
+import MenuIcon from '../../assets/menu-icon.svg';
 import ExitIcon from '../../assets/exit-icon.svg';
-import FileIcon from '../../assets/file.svg';
+import FileIcon from '../../assets/file-icon.svg';
 import Button from '../button';
 import Container from '../container';
 import './header.css';
@@ -43,7 +43,7 @@ const Header = () => {
 					<div className="menu-container">
 						<img
 							alt="Menu Icone"
-							className="clickEffect"
+							className={`clickEffect ${opened && 'rotate'}`}
 							src={MenuIcon}
 							onClick={() => {
 								setOpened(!opened);

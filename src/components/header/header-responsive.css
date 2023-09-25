@@ -39,7 +39,7 @@
 		justify-content: center;
 		left: 0px;
 		padding: 24px;
-		position: absolute;
+		position: fixed;
 		top: -110px;
 		width: 100%;
 		z-index: 1;
@@ -84,5 +84,8 @@
 	}
 	.menu-mobile .menu-item-red p {
 		color: #e64a19;
+	}
+	.rotate {
+		transform: rotate(90deg);
 	}
 }

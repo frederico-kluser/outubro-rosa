@@ -43,6 +43,22 @@ const Home = () => {
 					<p>Vamos começar com o e-mail e a senha</p>
 					<div className="input-container">
 						<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} />
+						<Input
+							error="Nome completo"
+							caption="exemplo@nome.com"
+							placeholder="E-mail"
+							setValue={setEmail}
+							type="email"
+							value={email}
+						/>
+						<Input
+							info="Nome completo"
+							caption="exemplo@nome.com"
+							placeholder="E-mail"
+							setValue={setEmail}
+							type="email"
+							value={email}
+						/>
 						<Input placeholder="Senha" setValue={setPassword} type="password" value={password} />
 					</div>
 					<Button text="Entrar" isCondensed />
