@@ -1,0 +1,21 @@
+.radio-group {
+	display: flex;
+	gap: 16px;
+	width: 100%;
+}
+
+.radio {
+	display: flex;
+	gap: 4px;
+}
+
+.radio p {
+	color: #404040;
+	/* Desktop/H5 R 16 */
+	/* font-family: Signika; */
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	/* 150% */
+}
