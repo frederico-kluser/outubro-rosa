@@ -1,6 +1,11 @@
 @media (max-width: 768px) {
 	.fleury-footer {
 		padding: 0px 16px;
+		height: 152px;
+	}
+	.fleury-footer .image-fleury-logo {
+		margin-top: 8px;
+		margin-bottom: 24px;
 	}
 	.fleury-footer .container {
 		flex-direction: column;
