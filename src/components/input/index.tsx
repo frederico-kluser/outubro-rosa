@@ -28,7 +28,7 @@ Input.propTypes = {
 	info: PropTypes.string,
 	placeholder: PropTypes.string.isRequired,
 	setValue: PropTypes.func.isRequired,
-	type: PropTypes.oneOf(['text', 'number', 'password', 'email']).isRequired,
+	type: PropTypes.oneOf(['text', 'number', 'password', 'email', 'phone']).isRequired,
 	value: PropTypes.string.isRequired,
 };
 
