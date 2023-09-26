@@ -165,23 +165,23 @@ const Home = () => {
 						<b>Exames de imagem:</b>
 					</p>
 					<div className="mt-16" />
-					<Checkbox text="Mamografia" onChange={() => {}} />
-					<div className="mt-8" />
-					<Radio texts={['10h20', '10h40', '11h00', '11h20']} onChange={() => {}} />
-					<div className="mt-16" />
-					<Checkbox text="USG Abdome superior" onChange={() => {}} />
-					<div className="mt-16" />
-					<Checkbox text="USG Abdome total" onChange={() => {}} />
-					<div className="mt-8" />
-					<Radio texts={['10h20', '10h40', '11h00', '11h20']} onChange={() => {}} />
-					<div className="mt-16" />
-					<Checkbox text="USG Mamas" onChange={() => {}} />
-					<div className="mt-16" />
-					<Checkbox text="USG Tato urinário ou pelve" onChange={() => {}} />
-					<div className="mt-16" />
-					<Checkbox text="USG Transvaginal" onChange={() => {}} />
-					<div className="mt-16" />
-					<Checkbox text="USG Tireóide" onChange={() => {}} />
+					<div className="gap-16">
+						<div>
+							<Checkbox text="Mamografia" onChange={() => {}} />
+							<div className="mt-8" />
+						</div>
+						<Radio texts={['10h20', '10h40', '11h00', '11h20']} onChange={() => {}} />
+						<Checkbox text="USG Abdome superior" onChange={() => {}} />
+						<div>
+							<Checkbox text="USG Abdome total" onChange={() => {}} />
+							<div className="mt-8" />
+							<Radio texts={['10h20', '10h40', '11h00', '11h20']} onChange={() => {}} />
+						</div>
+						<Checkbox text="USG Mamas" onChange={() => {}} />
+						<Checkbox text="USG Tato urinário ou pelve" onChange={() => {}} />
+						<Checkbox text="USG Transvaginal" onChange={() => {}} />
+						<Checkbox text="USG Tireóide" onChange={() => {}} />
+					</div>
 					<div className="mt-24" />
 					<Button
 						text="Continuar"
