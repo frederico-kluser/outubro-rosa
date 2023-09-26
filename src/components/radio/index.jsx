@@ -4,11 +4,16 @@ import RadioOn from '../../assets/radio-on-icon.svg';
 import RadioOff from '../../assets/radio-off-icon.svg';
 import './radio.css';
 
-const Radio = ({ texts, onChange }) => {
+const Radio = ({ texts, onChange, vertical }) => {
 	const [selected, setSelected] = useState(0);
 
 	return (
-		<div className="radio-group">
+		<div
+			className="radio-group"
+			style={{
+				flexDirection: vertical ? 'column' : 'row',
+			}}
+		>
 			{texts.map((text, index) => (
 				<div
 					key={text}
@@ -29,6 +34,7 @@ const Radio = ({ texts, onChange }) => {
 Radio.propTypes = {
 	texts: PropTypes.arrayOf(PropTypes.string).isRequired,
 	onChange: PropTypes.func.isRequired,
+	vertical: PropTypes.bool,
 };
 
 export default Radio;
