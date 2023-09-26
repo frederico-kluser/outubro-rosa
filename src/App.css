@@ -71,6 +71,10 @@ body {
 	margin-top: 32px;
 }
 
+.mt-40 {
+	margin-top: 40px;
+}
+
 .mobile {
 	display: none !important;
 }
@@ -88,6 +92,9 @@ body {
 	}
 	.column-size {
 		width: 100%;
+	}
+	.input-container {
+		gap: 0px;
 	}
 }
 
