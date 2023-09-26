@@ -47,6 +47,7 @@ body {
 
 .column-size {
 	width: 340px;
+	margin: auto;
 }
 
 .container-16 {
@@ -83,7 +84,7 @@ body {
 	display: flex !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1106px) {
 	.mobile {
 		display: flex !important;
 	}

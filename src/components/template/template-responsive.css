@@ -1,4 +1,7 @@
-@media (max-width: 768px) {
+@media (max-width: 1106px) {
+	.body {
+		min-height: calc(100vh - (70px + 152px));
+	}
 	.body .container {
 		padding: 24px 16px;
 	}
