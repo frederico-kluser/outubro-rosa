@@ -3,9 +3,7 @@
 	/* Desktop/B1 R 14 */
 	/* font-family: Signika; */
 	align-items: center;
-	background: rgba(235, 187, 247, 0.4);
 	border-radius: 4px;
-	color: #8e24aa;
 	display: flex;
 	flex-shrink: 0;
 	font-size: 14px;
@@ -16,4 +14,14 @@
 	justify-content: center;
 	line-height: 21px;
 	width: 340px;
+}
+
+.purple {
+	background: #ebbbf766;
+	color: #8e24aa;
+}
+
+.green {
+	background: #e9fbfa;
+	color: #404040;
 }
