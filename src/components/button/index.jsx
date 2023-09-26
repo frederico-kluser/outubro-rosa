@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import './button.css';
 import Icon from '../icon';
 
-const Button = ({ id, text, isOutline, isCondensed, isLink, iconName, disabled }) => {
+const Button = ({ id, text, isOutline, isCondensed, isLink, iconName, disabled, onClick }) => {
 	let className = isOutline ? 'button button--outline' : 'button';
 	className = isLink ? 'button button--link' : className;
 	className = isCondensed ? 'button button--condensed' : className;
 	className = disabled ? `${className} button--disabled` : className;
 
 	return (
-		<button id={id || null} className={`${className} clickEffect`} disabled={disabled}>
+		<button id={id || null} className={`${className} clickEffect`} disabled={disabled} onClick={onClick}>
 			{iconName && <Icon iconName={iconName} />}
 			{text}
 		</button>
@@ -24,6 +24,7 @@ Button.propTypes = {
 	isLink: PropTypes.bool,
 	iconName: PropTypes.string,
 	disabled: PropTypes.bool,
+	onClick: PropTypes.func,
 };
 
 export default Button;
