@@ -18,20 +18,25 @@
 	display: flex;
 	flex-shrink: 0;
 	height: 48px;
-	padding: 16px 282px 16px 16px;
+	padding: 16px;
 	width: 100%;
 }
 
-.input-group.error .input {
+.input-group.active .input {
 	border: 1px solid #ea1b23;
 }
 
-.input-group.info .input {
+.input-group.active .input:focus {
+	border-color: #ea1b23 !important;
+	outline: none;
+}
+
+.input-group.error .input {
 	border: 1px solid #8e24aa;
 }
 
-.input-group.error p,
-.input-group.info p {
+.input-group.active p,
+.input-group.error p {
 	color: #ea1b23 !important;
 	/* Desktop/B2 R 12 */
 	/* font-family: Signika; */
@@ -47,7 +52,7 @@
 	background-color: #ffffff;
 }
 
-.input-group.info p {
+.input-group.error p {
 	color: #8e24aa !important;
 }
 
@@ -64,11 +69,11 @@
 	position: absolute;
 }
 
-.input-group .span.info {
+.input-group .span.error {
 	color: #8e24aa;
 }
 
-.input-group .info-image {
+.input-group .error-image {
 	right: 12px;
 	position: absolute;
 }
