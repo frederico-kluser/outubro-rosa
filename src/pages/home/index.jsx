@@ -8,6 +8,7 @@ import Template from '../../components/template';
 import './home.css';
 import './home-responsive.css';
 import Radio from '../../components/radio';
+import validateInput from '../../utils/validateInput';
 
 const Home = () => {
 	const [page, setPage] = useState('login');
@@ -63,6 +64,7 @@ const Home = () => {
 								onClick={() => {
 									setPage('register-with-card-1');
 								}}
+								disabled={!validateInput('email', email) || !validateInput('password', password)}
 							/>
 						</div>
 					</div>
