@@ -106,6 +106,7 @@ const Home = () => {
 						onClick={() => {
 							setPage('register-with-card-2');
 						}}
+						disabled={!validateInput('text', name) || !validateInput('phone', phone) || !validateInput('email', email2)}
 					/>
 				</div>
 			)}
