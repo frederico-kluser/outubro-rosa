@@ -30,11 +30,11 @@ const validateInput = (type, value) => {
 		case 'email':
 			return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
 		case 'phone':
-			return /^(\+?\d{1,3}\s?)?\(?\d{2,3}\)?[-.\s]?\d{4,5}[-.\s]?\d{4}$/.test(value);
+			return /^\d{10,14}$/.test(value.replace(/\D/g, ''));
 		case 'date':
 			return /^\d{4}-\d{2}-\d{2}$/.test(value);
 		case 'cpf':
-			return validateCPF(value);
+			return validateCPF(value.replace(/\D/g, ''));
 		default:
 			return false;
 	}

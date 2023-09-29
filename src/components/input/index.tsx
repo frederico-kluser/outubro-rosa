@@ -6,10 +6,35 @@ import './input.css';
 import './input-responsive.css';
 
 const applyMask = (type, value) => {
-	let newValue = value;
-	if (type === 'cpf') {
-		newValue = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-		console.log('newValue :', newValue);
+	let newValue = value.replace(/\D/g, '');
+	switch (type) {
+		case 'cpf':
+			newValue = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+			console.log('newValue :', newValue);
+			break;
+		case 'phone':
+			const length = newValue.length; // remove caracteres não numéricos e conta o tamanho
+
+			if (length === 10) {
+				newValue = newValue.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+			}
+
+			if (length === 11) {
+				newValue = newValue.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+			}
+
+			if (length === 12) {
+				newValue = newValue.replace(/(\d{3})(\d{5})(\d{4})/, '($1) $2-$3');
+			}
+
+			if (length === 13) {
+				newValue = newValue.replace(/(\d{2})(\d{2})(\d{5})(\d{4})/, '+$1 ($2) $3-$4');
+			}
+
+			if (length === 14) {
+				newValue = newValue.replace(/(\d{2})(\d{3})(\d{5})(\d{4})/, '+$1 ($2) $3-$4');
+			}
+			break;
 	}
 	return newValue;
 };
