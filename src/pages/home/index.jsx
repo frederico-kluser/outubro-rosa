@@ -57,7 +57,6 @@ const Home = () => {
 							<div className="input-container">
 								<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} />
 								<Input placeholder="Senha" setValue={setPassword} type="password" value={password} />
-								<Input placeholder="CPF" setValue={setCPF} type="cpf" value={cpf} />
 							</div>
 							<Button
 								text="Entrar"
