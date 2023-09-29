@@ -5,6 +5,15 @@ import validateInput from '../../utils/validateInput';
 import './input.css';
 import './input-responsive.css';
 
+const applyMask = (type, value) => {
+	let newValue = value;
+	if (type === 'cpf') {
+		newValue = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+		console.log('newValue :', newValue);
+	}
+	return newValue;
+};
+
 const Input = ({ caption, placeholder, setValue, type, value }) => {
 	const [active, setActive] = useState(false);
 	const [error, setError] = useState(false);
@@ -30,7 +39,7 @@ const Input = ({ caption, placeholder, setValue, type, value }) => {
 				onChange={(e) => {
 					setError(false);
 					console.log('validateInput(type, e.target.value) :', validateInput(type, e.target.value));
-					setValue(e.target.value);
+					setValue(applyMask(type, e.target.value));
 				}}
 				placeholder={placeholder}
 				type={type === 'cpf' ? 'text' : type}
