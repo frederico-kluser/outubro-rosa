@@ -29,8 +29,20 @@ const Home = () => {
 	const [password, setPassword] = useState('');
 	const [error] = useState(false);
 
+	const [showModal, setShowModal] = useState(false);
+
 	return (
-		<Template>
+		<Template
+			modalProps={{
+				title: 'goiabinha',
+				paragraph: 'goiabinha',
+				buttonText: 'goiabinha',
+				callback: () => {
+					setShowModal(false);
+				},
+				open: showModal,
+			}}
+		>
 			<div className="column-size">
 				<h1>Outubro Rosa</h1>
 				<div className="mt-24 mobile" />

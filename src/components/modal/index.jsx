@@ -4,10 +4,8 @@ import CircleCheckIcon from '../../assets/circle-check-icon.svg';
 import Button from '../../components/button';
 import './modal.css';
 
-const Modal = ({ title, paragraph, buttonText, callback, open = false }) => {
-	const [showModal, setShowModal] = React.useState(open);
-
-	return showModal ? (
+const Modal = ({ title, paragraph, buttonText, callback, open }) => {
+	return open ? (
 		<div className="modal-background">
 			<div className="modal">
 				<img src={CircleCheckIcon} alt="Ícone de confirmação" />
@@ -19,7 +17,6 @@ const Modal = ({ title, paragraph, buttonText, callback, open = false }) => {
 					text={buttonText}
 					isCondensed
 					onClick={() => {
-						setShowModal(false);
 						callback();
 					}}
 				/>

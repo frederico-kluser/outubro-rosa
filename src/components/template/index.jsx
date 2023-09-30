@@ -6,8 +6,9 @@ import UseCheckToken from '../../hooks/useCheckToken';
 import Modal from '../modal';
 import './template.css';
 import './template-responsive.css';
+import modalObjectProp from '../../proptypes/modalProps';
 
-const Template = ({ children }) => {
+const Template = ({ children, modalProps }) => {
 	return (
 		<UseCheckToken>
 			<div>
@@ -16,7 +17,7 @@ const Template = ({ children }) => {
 					<Container>{children}</Container>
 				</section>
 				<Footer />
-				{/* <Modal /> */}
+				<Modal {...modalProps} />
 			</div>
 		</UseCheckToken>
 	);
@@ -24,6 +25,7 @@ const Template = ({ children }) => {
 
 Template.propTypes = {
 	children: PropTypes.node.isRequired,
+	modalProps: modalObjectProp,
 };
 
 export default Template;
