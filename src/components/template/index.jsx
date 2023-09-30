@@ -4,9 +4,9 @@ import Footer from '../footer';
 import Container from '../container';
 import UseCheckToken from '../../hooks/useCheckToken';
 import Modal from '../modal';
+import modalObjectProp from '../../proptypes/modalProps';
 import './template.css';
 import './template-responsive.css';
-import modalObjectProp from '../../proptypes/modalProps';
 
 const Template = ({ children, modalProps }) => {
 	return (

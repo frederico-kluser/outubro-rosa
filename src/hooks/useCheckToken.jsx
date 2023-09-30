@@ -16,6 +16,10 @@ const UseCheckToken = ({ children }) => {
 			if (!token) {
 				navigate('/');
 			}
+		} else {
+			if (token) {
+				navigate('/register');
+			}
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [token]);

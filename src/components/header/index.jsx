@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import FleuryLogo from '../../assets/grupo-fleury-logo.svg';
 import OutubroRosaLogo from '../../assets/outubro-rosa-logo.png';
 import MenuIcon from '../../assets/menu-icon.svg';
@@ -7,10 +8,25 @@ import Button from '../button';
 import Container from '../container';
 import './header.css';
 import './header-responsive.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+	const navigate = useNavigate();
 	const [opened, setOpened] = useState(false);
+	const [showExitButton, setShowExitButton] = useState(false);
+	const location = useLocation();
+
+	useEffect(() => {
+		if (location.pathname !== '/') {
+			setShowExitButton(true);
+		}
+	}, [location]);
+
+	const exitFunction = () => {
+		Cookies.remove('token');
+		navigate('/');
+	};
 
 	return (
 		<>
@@ -21,10 +37,12 @@ const Header = () => {
 					<p>Preparo de exames</p>
 				</div>
 				<div className="separator"></div>
-				<div className="menu-item-red clickEffect">
-					<img src={ExitIcon} alt="Icone de sair" />
-					<p>Sair</p>
-				</div>
+				{showExitButton && (
+					<div className="menu-item-red clickEffect" onClick={exitFunction}>
+						<img src={ExitIcon} alt="Icone de sair" />
+						<p>Sair</p>
+					</div>
+				)}
 			</div>
 			<header className="fleury-header">
 				<Container>
@@ -37,7 +55,7 @@ const Header = () => {
 					</div>
 					<div className="buttons-container">
 						<Button text="Instruções de preparo" isOutline />
-						<Button text="Sair" iconName="exit" isLink />
+						{showExitButton && <Button text="Sair" iconName="exit" isLink onClick={exitFunction} />}
 						{/* <Button text="Sair" iconName="exit" isLink disabled /> */}
 					</div>
 					<div className="menu-container">
