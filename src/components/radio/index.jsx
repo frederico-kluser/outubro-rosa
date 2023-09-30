@@ -4,8 +4,8 @@ import RadioOn from '../../assets/radio-on-icon.svg';
 import RadioOff from '../../assets/radio-off-icon.svg';
 import './radio.css';
 
-const Radio = ({ texts, onChange, vertical }) => {
-	const [selected, setSelected] = useState(0);
+const Radio = ({ texts, onChange, vertical, initialValue = 0 }) => {
+	const [selected, setSelected] = useState(initialValue);
 
 	return (
 		<div
@@ -35,6 +35,7 @@ Radio.propTypes = {
 	texts: PropTypes.arrayOf(PropTypes.string).isRequired,
 	onChange: PropTypes.func.isRequired,
 	vertical: PropTypes.bool,
+	initialValue: PropTypes.number,
 };
 
 export default Radio;

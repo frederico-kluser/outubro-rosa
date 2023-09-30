@@ -7,8 +7,8 @@ import Warning from '../../components/warning';
 import Template from '../../components/template';
 import Radio from '../../components/radio';
 import validateInput from '../../utils/validateInput';
-import './home.css';
-import './home-responsive.css';
+import '../pages.css';
+import '../pages-responsive.css';
 
 const Home = () => {
 	/*
@@ -33,11 +33,11 @@ const Home = () => {
 	const [password, setPassword] = useState('');
 	const [error] = useState(false);
 
-	const [name, setName] = useState('');
-	const [cpf, setCPF] = useState('');
-	const [birthday, setBirthday] = useState('');
-	const [phone, setPhone] = useState('');
-	const [email2, setEmail2] = useState('');
+	// const [name, setName] = useState('');
+	// const [cpf, setCPF] = useState('');
+	// const [birthday, setBirthday] = useState('');
+	// const [phone, setPhone] = useState('');
+	// const [email2, setEmail2] = useState('');
 
 	return (
 		<Template>
@@ -97,7 +97,7 @@ const Home = () => {
 					</div>
 				</>
 			)}
-			{page === 'register-with-card-1' && (
+			{/* {page === 'register-with-card-1' && (
 				<div className="column-size">
 					<h1>Faça o cadastro</h1>
 					<div className="mt-24" />
@@ -249,7 +249,7 @@ const Home = () => {
 						}}
 					/>
 				</div>
-			)}
+			)} */}
 		</Template>
 	);
 };
