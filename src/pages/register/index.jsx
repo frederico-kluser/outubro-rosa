@@ -88,14 +88,11 @@ const Register = () => {
 						// setPage('register-with-card-2');
 					}}
 					disabled={
-						(medicalOrder === 0 && !validateInput('text', name)) ||
+						!validateInput('text', name) ||
 						!validateInput('phone', phone) ||
 						!validateInput('email', email) ||
-						(medicalOrder === 1 && !validateInput('text', name)) ||
-						!validateInput('number', cpf) ||
-						!validateInput('number', birthday) ||
-						!validateInput('phone', phone) ||
-						!validateInput('email', email)
+						(medicalOrder === 1 && !validateInput('cpf', cpf)) ||
+						(medicalOrder === 1 && !validateInput('date', birthday))
 					}
 				/>
 			</div>
