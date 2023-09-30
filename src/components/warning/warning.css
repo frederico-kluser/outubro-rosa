@@ -9,10 +9,11 @@
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
-	gap: 16px;
+	gap: 8px;
 	height: 58px;
 	justify-content: center;
 	line-height: 21px;
+	padding: 0px 20px;
 	width: 340px;
 }
 
