@@ -46,10 +46,9 @@
 }
 
 .container-promo .image {
-	background-position: -144.15px -24.057px;
 	background-repeat: no-repeat;
-	background-size: 172.754% 164.548%;
 	border-radius: 30px;
+	background-size: contain;
 	flex-shrink: 0;
 	height: 322px;
 	width: 460px;

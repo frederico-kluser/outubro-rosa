@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import OutubroRosaPromo from '../../assets/outubro-rosa-promo.jpeg';
+import OutubroRosaPromo from '../../assets/outubro-rosa-promo.png';
 import Input from '../../components/input';
 import Button from '../../components/button';
 import Checkbox from '../../components/checkbox';
