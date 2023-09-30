@@ -45,7 +45,7 @@ const Input = ({ caption, placeholder, setValue, type, value }) => {
 
 	return (
 		<div
-			className={`input-group ${active && 'active'} ${error && 'error'}`}
+			className={`input-group${!!active ? ' active' : ''}${!!error ? ' error' : ''}`}
 			onFocus={() => {
 				setError(false);
 				setActive(true);
