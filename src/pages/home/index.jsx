@@ -11,6 +11,22 @@ import './home.css';
 import './home-responsive.css';
 
 const Home = () => {
+	/*
+    const { response, error, isLoading } = useAxios({
+      url: '/auth/login',
+      method: 'post',
+      baseHeaders: {
+        'accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      data: {
+        username: 'admin',
+        password: 'admin'
+      },
+      baseURL: true
+    });
+  */
+
 	const [page, setPage] = useState('login');
 
 	const [email, setEmail] = useState('');
