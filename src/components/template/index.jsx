@@ -4,16 +4,20 @@ import Footer from '../footer';
 import Container from '../container';
 import './template.css';
 import './template-responsive.css';
+import Modal from '../modal';
 
-const Template = ({ children }) => (
-	<div>
-		<Header />
-		<section className="body">
-			<Container>{children}</Container>
-		</section>
-		<Footer />
-	</div>
-);
+const Template = ({ children }) => {
+	return (
+		<div>
+			<Header />
+			<section className="body">
+				<Container>{children}</Container>
+			</section>
+			<Footer />
+			<Modal />
+		</div>
+	);
+};
 
 Template.propTypes = {
 	children: PropTypes.node.isRequired,
