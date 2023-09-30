@@ -14,7 +14,7 @@ const Template = ({ children }) => {
 				<Container>{children}</Container>
 			</section>
 			<Footer />
-			<Modal />
+			{/* <Modal /> */}
 		</div>
 	);
 };

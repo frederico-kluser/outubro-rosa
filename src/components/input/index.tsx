@@ -35,6 +35,9 @@ const applyMask = (type, value) => {
 				newValue = newValue.replace(/(\d{2})(\d{3})(\d{5})(\d{4})/, '+$1 ($2) $3-$4');
 			}
 			break;
+		default:
+			newValue = value;
+			break;
 	}
 	return newValue;
 };
