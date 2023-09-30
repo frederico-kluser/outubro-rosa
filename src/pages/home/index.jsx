@@ -30,7 +30,7 @@ const Home = () => {
 	const [error] = useState(false);
 
 	return (
-		<>
+		<Template>
 			<div className="column-size">
 				<h1>Outubro Rosa</h1>
 				<div className="mt-24 mobile" />
@@ -83,7 +83,7 @@ const Home = () => {
 					></div>
 				</div>
 			</div>
-		</>
+		</Template>
 	);
 };
 

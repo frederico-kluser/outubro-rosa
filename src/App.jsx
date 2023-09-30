@@ -6,15 +6,13 @@ import './App.css';
 
 function App() {
 	return (
-		<Template>
-			<BrowserRouter>
-				<Routes>
-					<Route index element={<Home />} />
-					<Route path="register" element={<Register />} />
-					{/* <Route path="*" element={<NoMatch />} /> */}
-				</Routes>
-			</BrowserRouter>
-		</Template>
+		<BrowserRouter>
+			<Routes>
+				<Route index element={<Home />} />
+				<Route path="register" element={<Register />} />
+				{/* <Route path="*" element={<NoMatch />} /> */}
+			</Routes>
+		</BrowserRouter>
 	);
 }
 

@@ -34,74 +34,76 @@ const Register = () => {
 	const [gender, setGender] = useState(0);
 
 	return (
-		<div className="column-size">
-			<h1>Faça o cadastro</h1>
-			<div className="mt-24" />
-			<p>
-				Quem vai fazer exames tem <b>pedido médico</b>?
-			</p>
-			<div className="mt-8" />
-			<Radio
-				texts={['Sim', 'Não']}
-				onChange={(value) => {
-					setMedicalOrder(value);
-				}}
-				initialValue={medicalOrder}
-			/>
-			{medicalOrder === 1 && (
-				<>
-					<div className="mt-8" />
-					<Warning
-						color="green"
-						text="Boa notícia! Agora, é possível fazer uma teleconsulta para solicitar os exames"
-					/>
-				</>
-			)}
-			<div className="mt-24 mobile" />
-			<div className="mt-32 desktop" />
-			<p>Conte mais sobre quem vai fazer exames</p>
-			<div className="mt-16" />
-			<div className="input-container">
-				<Input placeholder="Nome completo" setValue={setName} type="text" value={name} />
+		<Template>
+			<div className="column-size">
+				<h1>Faça o cadastro</h1>
+				<div className="mt-24" />
+				<p>
+					Quem vai fazer exames tem <b>pedido médico</b>?
+				</p>
+				<div className="mt-8" />
+				<Radio
+					texts={['Sim', 'Não']}
+					onChange={(value) => {
+						setMedicalOrder(value);
+					}}
+					initialValue={medicalOrder}
+				/>
 				{medicalOrder === 1 && (
 					<>
-						<Input placeholder="CPF" setValue={setCPF} type="cpf" value={cpf} />
-						<Input placeholder="Data de nascimento" setValue={setBirthday} type="date" value={birthday} />
+						<div className="mt-8" />
+						<Warning
+							color="green"
+							text="Boa notícia! Agora, é possível fazer uma teleconsulta para solicitar os exames"
+						/>
 					</>
 				)}
-				<Input caption="(DDD) + número" placeholder="Telefone" setValue={setPhone} type="phone" value={phone} />
-				<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} />
+				<div className="mt-24 mobile" />
+				<div className="mt-32 desktop" />
+				<p>Conte mais sobre quem vai fazer exames</p>
+				<div className="mt-16" />
+				<div className="input-container">
+					<Input placeholder="Nome completo" setValue={setName} type="text" value={name} />
+					{medicalOrder === 1 && (
+						<>
+							<Input placeholder="CPF" setValue={setCPF} type="cpf" value={cpf} />
+							<Input placeholder="Data de nascimento" setValue={setBirthday} type="date" value={birthday} />
+						</>
+					)}
+					<Input caption="(DDD) + número" placeholder="Telefone" setValue={setPhone} type="phone" value={phone} />
+					<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} />
+				</div>
+				{medicalOrder === 1 && (
+					<>
+						<div className="mt-8" />
+						<p>Sexo biológico?</p>
+						<div className="mt-8" />
+						<Radio
+							texts={['Masculino', 'Feminino']}
+							onChange={(value) => {
+								setGender(value);
+							}}
+							initialValue={gender}
+						/>
+					</>
+				)}
+				<div className="mt-24" />
+				<Button
+					text="Continuar"
+					isCondensed
+					onClick={() => {
+						// setPage('register-with-card-2');
+					}}
+					disabled={
+						!validateInput('text', name) ||
+						!validateInput('phone', phone) ||
+						!validateInput('email', email) ||
+						(medicalOrder === 1 && !validateInput('cpf', cpf)) ||
+						(medicalOrder === 1 && !validateInput('date', birthday))
+					}
+				/>
 			</div>
-			{medicalOrder === 1 && (
-				<>
-					<div className="mt-8" />
-					<p>Sexo biológico?</p>
-					<div className="mt-8" />
-					<Radio
-						texts={['Masculino', 'Feminino']}
-						onChange={(value) => {
-							setGender(value);
-						}}
-						initialValue={gender}
-					/>
-				</>
-			)}
-			<div className="mt-24" />
-			<Button
-				text="Continuar"
-				isCondensed
-				onClick={() => {
-					// setPage('register-with-card-2');
-				}}
-				disabled={
-					!validateInput('text', name) ||
-					!validateInput('phone', phone) ||
-					!validateInput('email', email) ||
-					(medicalOrder === 1 && !validateInput('cpf', cpf)) ||
-					(medicalOrder === 1 && !validateInput('date', birthday))
-				}
-			/>
-		</div>
+		</Template>
 	);
 };
 
