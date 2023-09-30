@@ -5,10 +5,10 @@ import Button from '../../components/button';
 import Checkbox from '../../components/checkbox';
 import Warning from '../../components/warning';
 import Template from '../../components/template';
-import './home.css';
-import './home-responsive.css';
 import Radio from '../../components/radio';
 import validateInput from '../../utils/validateInput';
+import './home.css';
+import './home-responsive.css';
 
 const Home = () => {
 	const [page, setPage] = useState('login');
