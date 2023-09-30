@@ -2,10 +2,8 @@ import { useState } from 'react';
 import OutubroRosaPromo from '../../assets/outubro-rosa-promo.png';
 import Input from '../../components/input';
 import Button from '../../components/button';
-import Checkbox from '../../components/checkbox';
 import Warning from '../../components/warning';
 import Template from '../../components/template';
-import Radio from '../../components/radio';
 import validateInput from '../../utils/validateInput';
 import '../pages.css';
 import '../pages-responsive.css';
@@ -27,106 +25,70 @@ const Home = () => {
     });
   */
 
-	const [page, setPage] = useState('login');
-
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error] = useState(false);
 
-	// const [name, setName] = useState('');
-	// const [cpf, setCPF] = useState('');
-	// const [birthday, setBirthday] = useState('');
-	// const [phone, setPhone] = useState('');
-	// const [email2, setEmail2] = useState('');
-
 	return (
-		<Template>
-			{page === 'login' && (
-				<>
-					<div className="column-size">
-						<h1>Outubro Rosa</h1>
+		<>
+			<div className="column-size">
+				<h1>Outubro Rosa</h1>
+				<div className="mt-24 mobile" />
+				<div className="container-promo mobile">
+					<div className="background"></div>
+					<div
+						className="image"
+						style={{
+							backgroundImage: `url(${OutubroRosaPromo})`,
+						}}
+					></div>
+				</div>
+				{error ? (
+					<>
+						<div className="mt-24" />
+						<Warning text="Dados incorretos. Por favor, tente de novo" />
+						<div className="mt-16 desktop" />
 						<div className="mt-24 mobile" />
-						<div className="container-promo mobile">
-							<div className="background"></div>
-							<div
-								className="image"
-								style={{
-									backgroundImage: `url(${OutubroRosaPromo})`,
-								}}
-							></div>
-						</div>
-						{error ? (
-							<>
-								<div className="mt-24" />
-								<Warning text="Dados incorretos. Por favor, tente de novo" />
-								<div className="mt-16 desktop" />
-								<div className="mt-24 mobile" />
-							</>
-						) : (
-							<>
-								<div className="mt-24 mobile" />
-								<div className="mt-32 desktop" />
-							</>
-						)}
-						<div className="container-16">
-							<p>Vamos começar com o e-mail e a senha</p>
-							<div className="input-container">
-								<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} />
-								<Input placeholder="Senha" setValue={setPassword} type="password" value={password} />
-							</div>
-							<Button
-								text="Entrar"
-								isCondensed
-								onClick={() => {
-									setPage('register-with-card-1');
-								}}
-								disabled={!validateInput('email', email) || !validateInput('password', password)}
-							/>
-						</div>
-					</div>
-					<div className="column-size reverse">
-						<div className="container-promo">
-							<div className="background"></div>
-							<div
-								className="image"
-								style={{
-									backgroundImage: `url(${OutubroRosaPromo})`,
-								}}
-							></div>
-						</div>
-					</div>
-				</>
-			)}
-			{/* {page === 'register-with-card-1' && (
-				<div className="column-size">
-					<h1>Faça o cadastro</h1>
-					<div className="mt-24" />
-					<p>
-						Quem vai fazer exames tem <b>pedido médico</b>?
-					</p>
-					<div className="mt-8" />
-					<Radio texts={['Sim', 'Não']} onChange={() => {}} />
-					<div className="mt-24 mobile" />
-					<div className="mt-32 desktop" />
-					<p>Conte mais sobre quem vai fazer exames</p>
-					<div className="mt-16" />
+					</>
+				) : (
+					<>
+						<div className="mt-24 mobile" />
+						<div className="mt-32 desktop" />
+					</>
+				)}
+				<div className="container-16">
+					<p>Vamos começar com o e-mail e a senha</p>
 					<div className="input-container">
-						<Input placeholder="Nome completo" setValue={setName} type="text" value={name} />
-						<Input caption="(DDD) + número" placeholder="Telefone" setValue={setPhone} type="phone" value={phone} />
-						<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail2} type="email" value={email2} />
+						<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} />
+						<Input placeholder="Senha" setValue={setPassword} type="password" value={password} />
 					</div>
-					<div className="mt-24" />
 					<Button
-						text="Continuar"
+						text="Entrar"
 						isCondensed
 						onClick={() => {
-							setPage('register-with-card-2');
+							// setPage('register-with-card-1');
 						}}
-						disabled={!validateInput('text', name) || !validateInput('phone', phone) || !validateInput('email', email2)}
+						disabled={!validateInput('email', email) || !validateInput('password', password)}
 					/>
 				</div>
-			)}
-			{page === 'register-with-card-2' && (
+			</div>
+			<div className="column-size reverse">
+				<div className="container-promo">
+					<div className="background"></div>
+					<div
+						className="image"
+						style={{
+							backgroundImage: `url(${OutubroRosaPromo})`,
+						}}
+					></div>
+				</div>
+			</div>
+		</>
+	);
+};
+
+{
+	/* {page === 'register-with-card-2' && (
 				<div className="column-size">
 					<h1>Local de atendimento</h1>
 					<div className="mt-24" />
@@ -210,48 +172,7 @@ const Home = () => {
 						}}
 					/>
 				</div>
-			)}
-			{page === 'register-without-card' && (
-				<div className="column-size">
-					<h1>Faça o cadastro</h1>
-					<div className="mt-24" />
-					<p>
-						Quem vai fazer exames tem <b>pedido médico</b>?
-					</p>
-					<div className="mt-8" />
-					<Radio texts={['Sim', 'Não']} onChange={() => {}} />
-					<div className="mt-8" />
-					<Warning
-						color="green"
-						text="Boa notícia! Agora, é possível fazer uma teleconsulta para solicitar os exames"
-					/>
-					<div className="mt-32 desktop" />
-					<div className="mt-24 mobile" />
-					<p>Conte mais sobre quem vai fazer exames</p>
-					<div className="mt-16" />
-					<div className="input-container">
-						<Input placeholder="Nome completo" setValue={setName} type="text" value={name} />
-						<Input placeholder="CPF" setValue={setCPF} type="number" value={cpf} />
-						<Input placeholder="Data de nascimento" setValue={setBirthday} type="number" value={birthday} />
-						<Input caption="(DDD) + número" placeholder="Telefone" setValue={setPhone} type="phone" value={phone} />
-						<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail2} type="email" value={email2} />
-					</div>
-					<div className="mt-8" />
-					<p>Sexo biológico?</p>
-					<div className="mt-8" />
-					<Radio texts={['Feminino', 'Masculino']} onChange={() => {}} />
-					<div className="mt-24" />
-					<Button
-						text="Continuar"
-						isCondensed
-						onClick={() => {
-							setPage('login');
-						}}
-					/>
-				</div>
-			)} */}
-		</Template>
-	);
-};
+			)} */
+}
 
 export default Home;
