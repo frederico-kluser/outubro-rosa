@@ -65,8 +65,8 @@ const Register = () => {
 					<Input placeholder="Nome completo" setValue={setName} type="text" value={name} />
 					{medicalOrder === 1 && (
 						<>
-							<Input placeholder="CPF" setValue={setCPF} type="number" value={cpf} />
-							<Input placeholder="Data de nascimento" setValue={setBirthday} type="number" value={birthday} />
+							<Input placeholder="CPF" setValue={setCPF} type="cpf" value={cpf} />
+							<Input placeholder="Data de nascimento" setValue={setBirthday} type="date" value={birthday} />
 						</>
 					)}
 					<Input caption="(DDD) + número" placeholder="Telefone" setValue={setPhone} type="phone" value={phone} />
@@ -77,7 +77,7 @@ const Register = () => {
 						<div className="mt-8" />
 						<p>Sexo biológico?</p>
 						<div className="mt-8" />
-						<Radio texts={['Feminino', 'Masculino']} onChange={() => {}} />
+						<Radio texts={['Masculino', 'Feminino']} onChange={() => {}} />
 					</>
 				)}
 				<div className="mt-24" />
