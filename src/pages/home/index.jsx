@@ -1,48 +1,69 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import OutubroRosaPromo from '../../assets/outubro-rosa-promo.png';
 import Input from '../../components/input';
 import Button from '../../components/button';
 import Warning from '../../components/warning';
 import Template from '../../components/template';
 import validateInput from '../../utils/validateInput';
+import useAxios from '../../hooks/useAxios';
 import '../pages.css';
 import '../pages-responsive.css';
 
 const Home = () => {
-	/*
-    const { response, error, isLoading } = useAxios({
-      url: '/auth/login',
-      method: 'post',
-      baseHeaders: {
-        'accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      data: {
-        username: 'admin',
-        password: 'admin'
-      },
-      baseURL: true
-    });
-  */
-
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [error] = useState(false);
+	const [loginError, setLoginError] = useState(false);
+	const [url, setUrl] = useState(''); // '/auth/login'
+	const [modalProps, setModalProps] = useState({
+		title: '',
+		paragraph: '',
+		buttonText: '',
+		callback: () => {
+			setModalProps((prev) => ({ ...prev, open: false }));
+			setUrl('');
+		},
+		open: false,
+		isError: false,
+	});
 
-	const [showModal, setShowModal] = useState(false);
+	const { response, error, isLoading } = useAxios({
+		url,
+		method: 'post',
+		baseHeaders: {
+			accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+		data: {
+			username: email,
+			password,
+		},
+		baseURL: true,
+	});
+
+	useEffect(() => {
+		if (url) {
+			console.log('isLoading :', isLoading);
+			if (response) {
+				console.log(response);
+				// setShowModal(true);
+			}
+			if (error) {
+				console.log(error);
+				setLoginError(true);
+				setModalProps((prev) => ({
+					...prev,
+					title: 'Dados incorretos',
+					paragraph: 'Por favor, tente de novo',
+					buttonText: 'Ok',
+					isError: true,
+					open: true,
+				}));
+			}
+		}
+	}, [response, error, isLoading]);
 
 	return (
-		<Template
-			modalProps={{
-				title: 'goiabinha',
-				paragraph: 'goiabinha',
-				buttonText: 'goiabinha',
-				callback: () => {
-					setShowModal(false);
-				},
-				open: showModal,
-			}}
-		>
+		<Template modalProps={modalProps}>
 			<div className="column-size">
 				<h1>Outubro Rosa</h1>
 				<div className="mt-24 mobile" />
@@ -55,7 +76,7 @@ const Home = () => {
 						}}
 					></div>
 				</div>
-				{error ? (
+				{loginError ? (
 					<>
 						<div className="mt-24" />
 						<Warning text="Dados incorretos. Por favor, tente de novo" />
@@ -71,16 +92,24 @@ const Home = () => {
 				<div className="container-16">
 					<p>Vamos começar com o e-mail e a senha</p>
 					<div className="input-container">
-						<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} />
-						<Input placeholder="Senha" setValue={setPassword} type="password" value={password} />
+						{/* <Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} /> */}
+						<Input caption="user 'admin'" placeholder="E-mail" setValue={setEmail} type="text" value={email} />
+						<Input
+							caption="user 'password123'"
+							placeholder="Senha"
+							setValue={setPassword}
+							type="password"
+							value={password}
+						/>
 					</div>
 					<Button
 						text="Entrar"
 						isCondensed
 						onClick={() => {
-							// setPage('register-with-card-1');
+							setUrl('/auth/login');
 						}}
-						disabled={!validateInput('email', email) || !validateInput('password', password)}
+						// disabled={!validateInput('email', email) || !validateInput('password', password)}
+						disabled={!validateInput('text', email) || !validateInput('password', password)}
 					/>
 				</div>
 			</div>
@@ -99,8 +128,7 @@ const Home = () => {
 	);
 };
 
-{
-	/* {page === 'register-with-card-2' && (
+/* {page === 'register-with-card-2' && (
 				<div className="column-size">
 					<h1>Local de atendimento</h1>
 					<div className="mt-24" />
@@ -185,6 +213,5 @@ const Home = () => {
 					/>
 				</div>
 			)} */
-}
 
 export default Home;
