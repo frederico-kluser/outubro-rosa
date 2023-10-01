@@ -56,7 +56,7 @@ const Home = () => {
 				setLoginError(true);
 				setModalProps((prev) => ({
 					...prev,
-					title: 'Dados incorretos',
+					title: 'Erro ao enviar dados',
 					paragraph: 'Por favor, tente de novo',
 					buttonText: 'Ok',
 					isError: true,
