@@ -10,6 +10,7 @@ import './header.css';
 import './header-responsive.css';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import changeLink from '../../utils/changeLink';
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -48,10 +49,24 @@ const Header = () => {
 				<Container>
 					<div className="logos-container">
 						<div className="logo-container">
-							<img alt="Grupo Fleury" className="image-fleury-logo clickEffect" src={FleuryLogo} />
+							<img
+								alt="Grupo Fleury"
+								className="image-fleury-logo clickEffect"
+								src={FleuryLogo}
+								onClick={() => {
+									changeLink('https://www.grupofleury.com.br');
+								}}
+							/>
 							<div className="horizontal-divisor" />
 						</div>
-						<img alt="Outubro Rosa Logo" className="image-outubro-rosa-logo clickEffect" src={OutubroRosaLogo} />
+						<img
+							alt="Outubro Rosa Logo"
+							className="image-outubro-rosa-logo clickEffect"
+							src={OutubroRosaLogo}
+							onClick={() => {
+								changeLink('https://www.gov.br/inca/pt-br/assuntos/campanhas/2022/outubro-rosa');
+							}}
+						/>
 					</div>
 					<div className="buttons-container">
 						<Button text="Instruções de preparo" isOutline />
