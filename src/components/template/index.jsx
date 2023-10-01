@@ -54,31 +54,40 @@ const Template = ({ children, modalProps, step }) => {
 						{step !== undefined && (
 							<div>
 								<div className="container-steps">
-									<div
-										className={`step ${getStepClassName(step, 0)} clickEffect`}
-										onClick={() => {
-											if (step > 0) {
-												navigate('/register', {
-													state: locationState,
-												});
-											}
-										}}
-									>
-										{step <= 0 ? 1 : <img src={CheckIcon} alt="Icone de check" />}
+									<div className="item-step">
+										<div
+											className={`step ${getStepClassName(step, 0)} clickEffect`}
+											onClick={() => {
+												if (step > 0) {
+													navigate('/register', {
+														state: locationState,
+													});
+												}
+											}}
+										>
+											{step <= 0 ? 1 : <img src={CheckIcon} alt="Icone de check" />}
+										</div>
+										<p>Cadastro</p>
 									</div>
-									<div
-										className={`step ${getStepClassName(step, 1)} clickEffect`}
-										onClick={() => {
-											if (step > 1) {
-												navigate('/unit', {
-													state: locationState,
-												});
-											}
-										}}
-									>
-										{step <= 1 ? 2 : <img src={CheckIcon} alt="Icone de check" />}
+									<div className="item-step">
+										<div
+											className={`step ${getStepClassName(step, 1)} clickEffect`}
+											onClick={() => {
+												if (step > 1) {
+													navigate('/unit', {
+														state: locationState,
+													});
+												}
+											}}
+										>
+											{step <= 1 ? 2 : <img src={CheckIcon} alt="Icone de check" />}
+										</div>
+										<p>Local</p>
 									</div>
-									<div className={`step ${getStepClassName(step, 2)} clickEffect`}>{step <= 2 ? 3 : ''}</div>
+									<div className="item-step">
+										<div className={`step ${getStepClassName(step, 2)} clickEffect`}>{step <= 2 ? 3 : ''}</div>
+										<p>Exames</p>
+									</div>
 								</div>
 								<div className="mt-24"></div>
 							</div>
