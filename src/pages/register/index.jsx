@@ -135,7 +135,7 @@ const Register = () => {
 					text="Continuar"
 					isCondensed
 					onClick={() => {
-						if (medicalOrder === 0) {
+						if (medicalOrder === 1) {
 							setUrl('/schedule');
 						} else {
 							navigate('/unit', {
