@@ -2,6 +2,13 @@
 	padding: 109px 145px 0px 145px;
 }
 
+.body--steps .container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	padding: 24px 145px 0px 145px;
+}
+
 .body .container h1 {
 	color: #404040;
 	/* H1 B 40 */

@@ -65,7 +65,7 @@ const Exams = () => {
 	}, [response, error, isLoading]);
 
 	return (
-		<Template modalProps={modalProps}>
+		<Template modalProps={modalProps} step={2}>
 			<div className="column-size">
 				<h1>Escolher exames</h1>
 				<div className="mt-24" />

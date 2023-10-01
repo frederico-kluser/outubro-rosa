@@ -103,7 +103,7 @@ const Unit = () => {
 	}, [response, error, isLoading]);
 
 	return (
-		<Template modalProps={modalProps}>
+		<Template modalProps={modalProps} step={1}>
 			<div className="column-size">
 				<h1>Local de atendimento</h1>
 				<div className="mt-24" />

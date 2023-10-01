@@ -6,3 +6,48 @@
 .body .container {
 	padding: 109px 145px 32px 145px;
 }
+
+.container-steps {
+	display: flex;
+	flex-direction: row;
+	gap: 64px;
+}
+
+.step {
+	display: flex;
+	width: 22px;
+	height: 22px;
+	padding: 2px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	text-align: center;
+	/* Desktop/B2 R 12 */
+	/* font-family: Signika; */
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px;
+	/* 150% */
+}
+
+.step--success {
+	border-radius: 100px;
+	border: 1px solid #008471;
+	background: #008471;
+}
+
+.step--actual {
+	border-radius: 100px;
+	border: 1px solid #ea1b23;
+	background: #ea1b23;
+	color: #ffffff;
+}
+
+.step--future {
+	border-radius: 100px;
+	border: 1px solid #404040;
+	background: #ffffff;
+	color: #404040;
+}

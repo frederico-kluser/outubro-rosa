@@ -8,17 +8,23 @@ import validateInput from '../../utils/validateInput';
 import useAxios from '../../hooks/useAxios';
 import '../pages.css';
 import '../pages-responsive.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Register = () => {
+	const location = useLocation();
+	const locationState = location.state || {
+		name: '',
+		phone: '',
+		email: '',
+	};
 	const navigate = useNavigate();
 
 	const [medicalOrder, setMedicalOrder] = useState(0);
-	const [name, setName] = useState('');
+	const [name, setName] = useState(locationState.name);
 	const [cpf, setCPF] = useState('');
 	const [birthday, setBirthday] = useState('');
-	const [phone, setPhone] = useState('');
-	const [email, setEmail] = useState('');
+	const [phone, setPhone] = useState(locationState.phone);
+	const [email, setEmail] = useState(locationState.email);
 	const [gender, setGender] = useState(0);
 	const [url, setUrl] = useState('');
 
@@ -77,7 +83,7 @@ const Register = () => {
 	}, [response, error, isLoading]);
 
 	return (
-		<Template modalProps={modalProps}>
+		<Template modalProps={modalProps} step={0}>
 			<div className="column-size">
 				<h1>Faça o cadastro</h1>
 				<div className="mt-24" />
