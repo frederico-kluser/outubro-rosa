@@ -1,30 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Input from '../../components/input';
 import Button from '../../components/button';
 import Warning from '../../components/warning';
 import Template from '../../components/template';
 import Radio from '../../components/radio';
 import validateInput from '../../utils/validateInput';
+import useAxios from '../../hooks/useAxios';
 import '../pages.css';
 import '../pages-responsive.css';
 
 const Register = () => {
-	/*
-    const { response, error, isLoading } = useAxios({
-      url: '/auth/login',
-      method: 'post',
-      baseHeaders: {
-        'accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      data: {
-        username: 'admin',
-        password: 'admin'
-      },
-      baseURL: true
-    });
-  */
-
 	const [medicalOrder, setMedicalOrder] = useState(0);
 	const [name, setName] = useState('');
 	const [cpf, setCPF] = useState('');
@@ -32,9 +17,64 @@ const Register = () => {
 	const [phone, setPhone] = useState('');
 	const [email, setEmail] = useState('');
 	const [gender, setGender] = useState(0);
+	const [url, setUrl] = useState('');
+
+	const [modalProps, setModalProps] = useState({
+		title: '',
+		paragraph: '',
+		buttonText: '',
+		callback: () => {
+			setModalProps((prev) => ({ ...prev, open: false }));
+			setUrl('');
+		},
+		open: false,
+		isError: false,
+	});
+
+	const { response, error, isLoading } = useAxios({
+		url,
+		method: 'post',
+		baseHeaders: {
+			accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+		data: {
+			name,
+			username: email,
+			phone,
+		},
+		baseURL: true,
+	});
+
+	useEffect(() => {
+		if (url) {
+			console.log('isLoading :', isLoading);
+			if (response) {
+				setModalProps((prev) => ({
+					...prev,
+					title: 'Pronto!',
+					paragraph:
+						'Para fazer a consulta, é só acessar o app Grupo Fleury - Saúde Digital nos dias 11 a 13 de outubro, a qualquer hora',
+					buttonText: 'Ok, entendi',
+					open: true,
+				}));
+			}
+			if (error) {
+				console.log(error);
+				setModalProps((prev) => ({
+					...prev,
+					title: 'Erro ao enviar dados',
+					paragraph: 'Por favor, tente de novo',
+					buttonText: 'Ok',
+					isError: true,
+					open: true,
+				}));
+			}
+		}
+	}, [response, error, isLoading]);
 
 	return (
-		<Template>
+		<Template modalProps={modalProps}>
 			<div className="column-size">
 				<h1>Faça o cadastro</h1>
 				<div className="mt-24" />
@@ -92,7 +132,11 @@ const Register = () => {
 					text="Continuar"
 					isCondensed
 					onClick={() => {
-						// setPage('register-with-card-2');
+						if (medicalOrder === 0) {
+							setUrl('/schedule');
+						} else {
+							// setUrl('/auth/register-with-card');
+						}
 					}}
 					disabled={
 						!validateInput('text', name) ||
