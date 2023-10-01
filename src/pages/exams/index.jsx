@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import Button from '../../components/button';
 import Template from '../../components/template';
 import useAxios from '../../hooks/useAxios';
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Radio from '../../components/radio';
 import Checkbox from '../../components/checkbox';
 import '../pages.css';
 import '../pages-responsive.css';
 
 const Exams = () => {
+	const location = useLocation();
+	const locationState = location.state || {};
 	const navigate = useNavigate();
 
 	const [url, setUrl] = useState('');
@@ -35,6 +36,13 @@ const Exams = () => {
 		data: {},
 		baseURL: true,
 	});
+
+	useEffect(() => {
+		console.log('locationState :', locationState);
+		if (!locationState.name || !locationState.email || !locationState.phone || !locationState.unit) {
+			navigate('/register');
+		}
+	}, [locationState]);
 
 	useEffect(() => {
 		if (url) {
