@@ -2,17 +2,44 @@ import { useEffect, useState } from 'react';
 import Button from '../../components/button';
 import Template from '../../components/template';
 import useAxios from '../../hooks/useAxios';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../pages.css';
 import '../pages-responsive.css';
 import Radio from '../../components/radio';
 
 const Unit = () => {
+	const location = useLocation();
+	const locationState = location.state || {};
 	const navigate = useNavigate();
 
 	const [url, setUrl] = useState('');
-	const [units, setUnits] = useState([]);
-	const [unitIndex, setUnitIndex] = useState(-1);
+	const [units, setUnits] = useState([
+		{
+			unit: 'Fleury Alameda Jaú, Al. Jaú, 1725 - Jardim Paulista',
+			room: 0,
+			acronymExam: 'string',
+			timeExam: 'string',
+			availableQuantity: 0,
+			exam: 'string',
+		},
+		{
+			unit: 'Fleury República do Líbano I, Av. República do Líbano, 635 - Ibirapuera',
+			room: 0,
+			acronymExam: 'string',
+			timeExam: 'string',
+			availableQuantity: 0,
+			exam: 'string',
+		},
+		{
+			unit: 'a+ Paraíso, Rua do Paraíso, 450 - Paraíso',
+			room: 0,
+			acronymExam: 'string',
+			timeExam: 'string',
+			availableQuantity: 0,
+			exam: 'string',
+		},
+	]);
+	const [unitIndex, setUnitIndex] = useState(0);
 
 	const [modalProps, setModalProps] = useState({
 		title: '',
@@ -35,6 +62,13 @@ const Unit = () => {
 		},
 		baseURL: true,
 	});
+
+	useEffect(() => {
+		console.log('locationState :', locationState);
+		if (!locationState.name || !locationState.email || !locationState.phone) {
+			navigate('/register');
+		}
+	}, [locationState]);
 
 	useEffect(() => {
 		if (url) {
@@ -76,22 +110,19 @@ const Unit = () => {
 				<p>Escolha uma unidade:</p>
 				<div className="mt-16" />
 				<Radio
-					texts={[
-						'Fleury Alameda Jaú, Al. Jaú, 1725 - Jardim Paulista',
-						'Fleury República do Líbano I, Av. República do Líbano, 635 - Ibirapuera',
-						'a+ Paraíso, Rua do Paraíso, 450 - Paraíso',
-					]}
+					texts={units.map((unit) => unit.unit)}
 					onChange={(value) => {
 						setUnitIndex(value);
 					}}
 					vertical
+					initialValue={unitIndex}
 				/>
 				<div className="mt-24" />
 				<Button
 					text="Continuar"
 					isCondensed
 					onClick={() => {
-						navigate('/exams', { state: { unit: units[unitIndex] } });
+						navigate('/exams', { state: { ...locationState, unit: units[unitIndex] } });
 					}}
 				/>
 			</div>
