@@ -22,11 +22,10 @@ const validateCPF = (cpf) => {
 const validateInput = (type, value) => {
 	switch (type) {
 		case 'text':
+		case 'password':
 			return value.length > 3;
 		case 'number':
 			return !isNaN(Number(value)) && String(value).length > 0;
-		case 'password':
-			return value.length >= 8;
 		case 'email':
 			return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
 		case 'phone':
