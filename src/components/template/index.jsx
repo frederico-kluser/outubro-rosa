@@ -5,9 +5,10 @@ import Container from '../container';
 import UseCheckToken from '../../hooks/useCheckToken';
 import Modal from '../modal';
 import modalObjectProp from '../../proptypes/modalProps';
+import { useLocation, useNavigate } from 'react-router-dom';
+import CheckIcon from '../../assets/check-icon.svg';
 import './template.css';
 import './template-responsive.css';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 /*
 .step--success {
@@ -63,7 +64,7 @@ const Template = ({ children, modalProps, step }) => {
 											}
 										}}
 									>
-										{step <= 0 ? 1 : ''}
+										{step <= 0 ? 1 : <img src={CheckIcon} alt="Icone de check" />}
 									</div>
 									<div
 										className={`step ${getStepClassName(step, 1)} clickEffect`}
@@ -75,7 +76,7 @@ const Template = ({ children, modalProps, step }) => {
 											}
 										}}
 									>
-										{step <= 1 ? 2 : ''}
+										{step <= 1 ? 2 : <img src={CheckIcon} alt="Icone de check" />}
 									</div>
 									<div className={`step ${getStepClassName(step, 2)} clickEffect`}>{step <= 2 ? 3 : ''}</div>
 								</div>
