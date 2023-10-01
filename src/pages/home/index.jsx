@@ -8,8 +8,12 @@ import validateInput from '../../utils/validateInput';
 import useAxios from '../../hooks/useAxios';
 import '../pages.css';
 import '../pages-responsive.css';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+	const navigate = useNavigate();
+
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [loginError, setLoginError] = useState(false);
@@ -44,8 +48,8 @@ const Home = () => {
 		if (url) {
 			console.log('isLoading :', isLoading);
 			if (response) {
-				console.log(response);
-				// setShowModal(true);
+				Cookies.set('token', response.data.token);
+				navigate('/register');
 			}
 			if (error) {
 				console.log(error);
