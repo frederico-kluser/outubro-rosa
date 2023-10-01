@@ -50,6 +50,15 @@
 	text-align: center;
 }
 
+.button--outline.button--error {
+	border: 1px solid #8e24aa;
+	color: #8e24aa;
+}
+
+.button--condensed.button--error {
+	background: #8e24aa;
+}
+
 .button--disabled {
 	opacity: 0.5 !important;
 }
