@@ -6,10 +6,10 @@ import Warning from '../../components/warning';
 import Template from '../../components/template';
 import validateInput from '../../utils/validateInput';
 import useAxios from '../../hooks/useAxios';
-import '../pages.css';
-import '../pages-responsive.css';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import '../pages.css';
+import '../pages-responsive.css';
 
 const Home = () => {
 	const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Home = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [loginError, setLoginError] = useState(false);
-	const [url, setUrl] = useState(''); // '/auth/login'
+	const [url, setUrl] = useState('');
 	const [modalProps, setModalProps] = useState({
 		title: '',
 		paragraph: '',
