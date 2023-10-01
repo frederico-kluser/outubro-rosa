@@ -18,7 +18,7 @@ function useAxios({ baseURL, data, baseHeaders = {}, method = 'get', url: inputU
 	const url = baseURL ? `${import.meta.env.VITE_URL}${inputUrl}` : inputUrl;
 	const headers = {
 		...baseHeaders,
-		authorization: `Bearer ${Cookies.get('token')}`,
+		'x-access-token': Cookies.get('token') || '',
 	};
 
 	const fetchData = async () => {
