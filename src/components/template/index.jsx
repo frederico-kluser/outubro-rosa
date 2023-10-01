@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import CheckIcon from '../../assets/check-icon.svg';
 import './template.css';
 import './template-responsive.css';
+import { useEffect } from 'react';
 
 /*
 .step--success {
@@ -45,6 +46,11 @@ const Template = ({ children, modalProps, step }) => {
 	const location = useLocation();
 	const locationState = location.state || {};
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 	return (
 		<UseCheckToken>
 			<div>
