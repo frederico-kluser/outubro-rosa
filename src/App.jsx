@@ -1,7 +1,8 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './pages/home';
 import Register from './pages/register';
-import Template from './components/template';
+import Unit from './pages/unit';
+import Exams from './pages/exams';
 import './App.css';
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
 			<Routes>
 				<Route index element={<Home />} />
 				<Route path="register" element={<Register />} />
-				{/* <Route path="*" element={<NoMatch />} /> */}
+				<Route path="unit" element={<Unit />} />
+				<Route path="exams" element={<Exams />} />
 			</Routes>
 		</BrowserRouter>
 	);
