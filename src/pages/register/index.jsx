@@ -8,8 +8,11 @@ import validateInput from '../../utils/validateInput';
 import useAxios from '../../hooks/useAxios';
 import '../pages.css';
 import '../pages-responsive.css';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+	const navigate = useNavigate();
+
 	const [medicalOrder, setMedicalOrder] = useState(0);
 	const [name, setName] = useState('');
 	const [cpf, setCPF] = useState('');
@@ -135,7 +138,13 @@ const Register = () => {
 						if (medicalOrder === 0) {
 							setUrl('/schedule');
 						} else {
-							// setUrl('/auth/register-with-card');
+							navigate('/unit', {
+								state: {
+									name,
+									phone,
+									email,
+								},
+							});
 						}
 					}}
 					disabled={
