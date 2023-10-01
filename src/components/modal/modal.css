@@ -25,6 +25,11 @@
 	width: 280px;
 }
 
+.modal-image {
+	height: 40px;
+	width: 40px;
+}
+
 .modal-text-div {
 	display: flex;
 	flex-direction: column;

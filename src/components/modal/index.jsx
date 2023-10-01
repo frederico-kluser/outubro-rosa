@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CircleCheckIcon from '../../assets/circle-check-icon.svg';
+import InformationIconPurple from '../../assets/information-purple.icon.svg';
 import Button from '../../components/button';
 import './modal.css';
 
-const Modal = ({ title, paragraph, buttonText, callback, open }) => {
+const Modal = ({ title, paragraph, buttonText, callback, open, isError }) => {
 	return open ? (
 		<div className="modal-background">
 			<div className="modal">
-				<img src={CircleCheckIcon} alt="Ícone de confirmação" />
+				<img
+					src={isError ? InformationIconPurple : CircleCheckIcon}
+					className="modal-image"
+					alt="Ícone de confirmação"
+				/>
 				<div className="modal-text-div">
 					<h1 className="modal-title">{title}</h1>
 					<p className="modal-paragraph">{paragraph}</p>
@@ -19,6 +24,7 @@ const Modal = ({ title, paragraph, buttonText, callback, open }) => {
 					onClick={() => {
 						callback();
 					}}
+					isError={isError}
 				/>
 			</div>
 		</div>
@@ -31,6 +37,7 @@ Modal.propTypes = {
 	buttonText: PropTypes.string.isRequired,
 	callback: PropTypes.func.isRequired,
 	open: PropTypes.bool,
+	isError: PropTypes.bool,
 };
 
 export default Modal;
