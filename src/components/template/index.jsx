@@ -10,6 +10,7 @@ import CheckIcon from '../../assets/check-icon.svg';
 import './template.css';
 import './template-responsive.css';
 import { useEffect } from 'react';
+import Loader from '../loader';
 
 /*
 .step--success {
@@ -42,7 +43,7 @@ const getStepClassName = (step, actual) => {
 	return 'step--future';
 };
 
-const Template = ({ children, modalProps, step }) => {
+const Template = ({ children, modalProps, step, loader }) => {
 	const location = useLocation();
 	const locationState = location.state || {};
 	const navigate = useNavigate();
@@ -103,6 +104,7 @@ const Template = ({ children, modalProps, step }) => {
 				</section>
 				<Footer />
 				<Modal {...modalProps} />
+				<Loader open={!!loader} />
 			</div>
 		</UseCheckToken>
 	);
@@ -112,6 +114,7 @@ Template.propTypes = {
 	children: PropTypes.node.isRequired,
 	modalProps: modalObjectProp,
 	step: PropTypes.number,
+	loader: PropTypes.bool,
 };
 
 export default Template;
