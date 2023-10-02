@@ -18,7 +18,7 @@
 }
 
 .fleury-footer-text {
-	/* font-family: Signika; */
+	font-family: 'Signika', sans-serif;
 	color: #757575;
 	font-size: 12px;
 	font-style: normal;
@@ -28,7 +28,7 @@
 }
 
 .fleury-footer-text > b {
-	/* font-family: Signika; */
+	font-family: 'Signika', sans-serif;
 	color: #757575;
 	font-size: 12px;
 	font-style: normal;

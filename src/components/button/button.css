@@ -1,5 +1,5 @@
 .button {
-	/* font-family: Signika; */
+	font-family: 'Signika', sans-serif;
 	align-items: center;
 	background-color: transparent;
 	border-radius: 25px;
@@ -31,7 +31,7 @@
 .button--condensed {
 	/* 150% */
 	/* Desktop/H5 R 16 */
-	/* font-family: Signika; */
+	font-family: 'Signika', sans-serif;
 	align-items: center;
 	background: #ea1b23;
 	border-radius: 25px;

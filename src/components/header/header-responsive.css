@@ -51,7 +51,7 @@
 	.menu-mobile .title {
 		color: #757575;
 		/* Mobile/B2 R 12 */
-		/* font-family: Signika; */
+		font-family: 'Signika', sans-serif;
 		font-size: 12px;
 		font-style: normal;
 		font-weight: 400;
@@ -70,7 +70,7 @@
 	.menu-mobile .menu-item-red p {
 		color: #757575;
 		/* Mobile/B1 R 14 */
-		/* font-family: Signika; */
+		font-family: 'Signika', sans-serif;
 		font-size: 14px;
 		font-style: normal;
 		font-weight: 400;
