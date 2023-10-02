@@ -1,7 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/jsx-key */
-import axios from 'axios';
-import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../../components/button';
@@ -16,6 +14,10 @@ const Exams = () => {
 	const location = useLocation();
 	const locationState = location.state || {};
 	const navigate = useNavigate();
+	const [url, setUrl] = useState('/unit/exams');
+	const [data, setData] = useState({
+		unit: locationState.unit.unit || '',
+	});
 	const [modalProps, setModalProps] = useState({
 		title: '',
 		paragraph: '',
@@ -30,20 +32,18 @@ const Exams = () => {
 	const [examsUsed, setExamsUsed] = useState([]);
 
 	const { response, error, isLoading } = useAxios({
-		url: '/unit/exams', // /schedule para pegar os exames, e depois outro para cadastrar
+		url,
 		method: 'post',
 		baseHeaders: {
 			accept: 'application/json',
 			'Content-Type': 'application/json',
 		},
-		data: {
-			unit: locationState.unit.unit || '',
-		},
+		data,
 		baseURL: true,
 	});
 
 	const sendSchedule = async () => {
-		const body = {
+		setData({
 			unit: locationState.unit._id,
 			user: {
 				name: locationState.name,
@@ -53,60 +53,10 @@ const Exams = () => {
 				birthdate: locationState.birthday,
 				biologicalsex: locationState.gender,
 			},
-			clinicalAnalysis: [],
+			clinicalAnalysis: [], // capturar checkboxs clicados
 			exams: examsUsed,
-		};
-		try {
-			await axios
-				.post(`${import.meta.env.VITE_URL}/schedule`, body, {
-					headers: {
-						'Content-Type': 'application/json',
-						'x-access-token': Cookies.get('token') || '',
-					},
-				})
-				.then((response) => {
-					if (response) {
-						setModalProps((prev) => ({
-							...prev,
-							title: 'Pronto!',
-							paragraph:
-								'Para fazer a consulta, é só acessar o app Grupo Fleury - Saúde Digital nos dias 11 a 13 de outubro, a qualquer hora',
-							buttonText: 'Ok, entendi',
-							open: true,
-						}));
-						navigate('/', {
-							state: {},
-						});
-					}
-				})
-				.catch((error) => {
-					if (error) {
-						console.log(error);
-						setModalProps((prev) => ({
-							...prev,
-							title: 'Erro ao enviar dados',
-							paragraph: 'Por favor, tente de novo',
-							buttonText: 'Ok',
-							isError: true,
-							open: true,
-						}));
-					}
-				});
-		} catch (error) {
-			setModalProps((prev) => ({
-				...prev,
-				title: 'Erro ao enviar dados',
-				paragraph: 'Por favor, tente de novo',
-				buttonText: 'Ok',
-				isError: true,
-				open: true,
-			}));
-			console.log(999, `Erro: ${error}`);
-		}
-	};
-
-	const hasAtLeastOneTimeExamUsed = () => {
-		return examsUsed.length > 0;
+		});
+		setUrl('/schedule');
 	};
 
 	const getDuplicatedTimeExams = () => {
@@ -125,18 +75,16 @@ const Exams = () => {
 	};
 
 	const handleFinalizarClick = () => {
-		if (!hasAtLeastOneTimeExamUsed()) {
-			alert('Por favor, selecione pelo menos um exame!');
-			return;
-		}
-
 		const duplicatedTimeExams = getDuplicatedTimeExams();
 		if (duplicatedTimeExams.length > 0) {
-			alert(
-				`Os seguintes horários de exame estão repetidos: ${duplicatedTimeExams.join(
-					', ',
-				)}, por favor, não selecione o mesmo horário para mais de um exame!`,
-			);
+			setModalProps((prev) => ({
+				...prev,
+				title: 'Mais de um exame no mesmo horário',
+				paragraph: `Os seguintes horários de exame estão repetidos: ${duplicatedTimeExams.join(', ')}`,
+				buttonText: 'Ok',
+				isError: true,
+				open: true,
+			}));
 			return;
 		}
 
@@ -218,14 +166,41 @@ const Exams = () => {
 
 	useEffect(() => {
 		console.log('isLoading :', isLoading);
-		if (response) {
+		if (response && url === '/unit/exams') {
 			setExamsList(response.data);
 		}
-		if (error) {
+		if (error && url === '/unit/exams') {
 			console.log(error);
 			setModalProps((prev) => ({
 				...prev,
 				title: 'Erro ao buscar exames',
+				paragraph: 'Por favor, tente de novo',
+				buttonText: 'Ok',
+				isError: true,
+				open: true,
+			}));
+		}
+
+		if (response && url === '/schedule') {
+			setModalProps((prev) => ({
+				...prev,
+				title: 'Pronto!',
+				paragraph:
+					'Para fazer a consulta, é só acessar o app Grupo Fleury - Saúde Digital nos dias 11 a 13 de outubro, a qualquer hora',
+				buttonText: 'Ok, entendi',
+				open: true,
+				onClick: () => {
+					setModalProps((prev) => ({ ...prev, open: false }));
+					navigate('/register', {
+						state: {},
+					});
+				},
+			}));
+		}
+		if (error && url === '/schedule') {
+			setModalProps((prev) => ({
+				...prev,
+				title: 'Erro ao enviar dados',
 				paragraph: 'Por favor, tente de novo',
 				buttonText: 'Ok',
 				isError: true,
@@ -268,7 +243,7 @@ const Exams = () => {
 				<div className="mt-16" />
 				<div className="gap-16">{componentListExams()}</div>
 				<div className="mt-24" />
-				<Button text="Finalizar" isCondensed onClick={handleFinalizarClick} />
+				<Button text="Finalizar" isCondensed onClick={handleFinalizarClick} disabled={examsUsed.length === 0} />
 			</div>
 		</Template>
 	);
