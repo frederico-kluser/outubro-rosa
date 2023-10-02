@@ -70,7 +70,8 @@ const Unit = () => {
 				<p>Escolha uma unidade:</p>
 				<div className="mt-16" />
 				<Radio
-					texts={units.map((unit) => `${unit.unit || ''} - ${unit.addressUnit || ''}`)}
+					titles={units.map((unit) => unit.unit || '')}
+					texts={units.map((unit) => ` - ${unit.addressUnit || ''}`)}
 					onChange={(value) => {
 						setUnitIndex(value);
 					}}

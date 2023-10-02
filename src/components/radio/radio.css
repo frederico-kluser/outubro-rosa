@@ -11,6 +11,21 @@
 	gap: 4px;
 }
 
+.radio-column {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.radio-line {
+	display: flex;
+	gap: 8px;
+}
+
+.radio-second-line {
+	padding-left: 24px;
+}
+
 .radio p {
 	color: #404040;
 	/* Desktop/H5 R 16 */
