@@ -16,11 +16,27 @@ const Footer = () => (
 				}}
 			/>
 			<p className="fleury-footer-text desktop">
-				Feito com ❤️ por Grupo Fleury - Todos os Direitos Reservados |&nbsp;<b>Política de Privacidade</b>&nbsp;| © 2023
+				Feito com ❤️ por Grupo Fleury - Todos os Direitos Reservados |&nbsp;
+				<a
+					href="https://dpo.privacytools.com.br/policy-view/AynyEq4GV/1/política-de-privacidade/pt_BR?s=1670867684492"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<b>Política de Privacidade</b>
+				</a>
+				&nbsp;| © 2023
 			</p>
 			<p className="fleury-footer-text mobile">Feito com ❤️ por Grupo Fleury - Todos os Direitos</p>
 			<p className="fleury-footer-text mobile">
-				Reservados |&nbsp;<b>Política de Privacidade</b>&nbsp;| © 2023
+				Reservados |&nbsp;
+				<a
+					href="https://dpo.privacytools.com.br/policy-view/AynyEq4GV/1/política-de-privacidade/pt_BR?s=1670867684492"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<b>Política de Privacidade</b>
+				</a>
+				&nbsp;| © 2023
 			</p>
 		</Container>
 	</footer>
