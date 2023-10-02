@@ -71,7 +71,7 @@ const Unit = () => {
 				<div className="mt-16" />
 				<Radio
 					titles={units.map((unit) => unit.unit || '')}
-					texts={units.map((unit) => ` - ${unit.addressUnit || ''}`)}
+					texts={units.map((unit) => unit.addressUnit || '')}
 					onChange={(value) => {
 						setUnitIndex(value);
 					}}

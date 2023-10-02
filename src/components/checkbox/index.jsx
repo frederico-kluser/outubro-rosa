@@ -9,13 +9,13 @@ const Checkbox = ({ text, onChange }) => {
 
 	return (
 		<div
-			className="checkbox"
+			className="checkbox clickEffect"
 			onClick={() => {
 				onChange(!isChecked);
 				setIsChecked(!isChecked);
 			}}
 		>
-			<img src={isChecked ? CheckboxOn : CheckboxOff} className="clickEffect" alt="Icone de checkbox" />
+			<img src={isChecked ? CheckboxOn : CheckboxOff} alt="Icone de checkbox" />
 			<p>{text}</p>
 		</div>
 	);
