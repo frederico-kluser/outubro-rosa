@@ -96,7 +96,7 @@ const Register = () => {
 	}, [response, error, isLoading]);
 
 	return (
-		<Template modalProps={modalProps} step={0} loader={isLoading}>
+		<Template modalProps={modalProps} step={0} loader={url && isLoading}>
 			<div className="column-size">
 				<h1>Faça o cadastro</h1>
 				<div className="mt-24" />

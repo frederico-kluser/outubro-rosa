@@ -67,7 +67,7 @@ const Home = () => {
 	}, [response, error, isLoading]);
 
 	return (
-		<Template modalProps={modalProps} loader={isLoading}>
+		<Template modalProps={modalProps} loader={url && isLoading}>
 			<div className="column-size">
 				<h1>Outubro Rosa</h1>
 				<div className="mt-24 mobile" />
