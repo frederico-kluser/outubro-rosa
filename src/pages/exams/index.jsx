@@ -32,13 +32,13 @@ const Exams = () => {
 		unit: locationState.unit.unit || '',
 	});
 	const [modalProps, setModalProps] = useState({
-		title: '',
-		paragraph: '',
-		buttonText: '',
+		// title: '',
+		// paragraph: '',
+		// buttonText: '',
 		callback: () => {
 			setModalProps((prev) => ({ ...prev, open: false }));
 		},
-		open: false,
+		// open: false,
 		isError: false,
 	});
 	const [examsList, setExamsList] = useState([]);
@@ -163,8 +163,7 @@ const Exams = () => {
 			setModalProps((prev) => ({
 				...prev,
 				title: 'Pronto!',
-				paragraph:
-					'Para fazer a consulta, é só acessar o app Grupo Fleury - Saúde Digital nos dias 11 a 13 de outubro, a qualquer hora',
+				paragraph: 'Agendamento confirmado',
 				buttonText: 'Ok, entendi',
 				open: true,
 				callback: () => {
