@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import RadioOn from '../../assets/radio-on-icon.svg';
 import RadioOff from '../../assets/radio-off-icon.svg';
 import './radio.css';
+import getUnitScroll from '../../utils/getUnitScroll';
 
 const Radio = ({ texts, onChange, vertical, initialValue = 0, titles = [] }) => {
 	const [selected, setSelected] = useState(initialValue);
@@ -12,11 +13,14 @@ const Radio = ({ texts, onChange, vertical, initialValue = 0, titles = [] }) => 
 			className="radio-group"
 			style={{
 				flexDirection: vertical ? 'column' : 'row',
+				maxHeight: `calc(100vh - ${getUnitScroll()}px)`,
+				overflowY: 'scroll',
+				flexWrap: 'nowrap',
 			}}
 		>
 			{texts.map((text, index) => (
 				<div
-					key={text}
+					key={text + index}
 					className={`${titles.length ? 'radio-column' : 'radio'} clickEffect`}
 					onClick={() => {
 						onChange(index);
