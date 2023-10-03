@@ -159,7 +159,6 @@ const Exams = () => {
 				open: true,
 			}));
 		}
-
 		if (response && url === '/schedule') {
 			setModalProps((prev) => ({
 				...prev,
@@ -168,11 +167,9 @@ const Exams = () => {
 					'Para fazer a consulta, é só acessar o app Grupo Fleury - Saúde Digital nos dias 11 a 13 de outubro, a qualquer hora',
 				buttonText: 'Ok, entendi',
 				open: true,
-				onClick: () => {
+				callback: () => {
 					setModalProps((prev) => ({ ...prev, open: false }));
-					navigate('/register', {
-						state: {},
-					});
+					navigate('/register');
 				},
 			}));
 		}
@@ -185,6 +182,7 @@ const Exams = () => {
 				isError: true,
 				open: true,
 			}));
+			setUrl('/unit/exams');
 		}
 	}, [response, error, isLoading]);
 

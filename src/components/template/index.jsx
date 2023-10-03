@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../header';
 import Footer from '../footer';
@@ -7,32 +8,10 @@ import Modal from '../modal';
 import modalObjectProp from '../../proptypes/modalProps';
 import { useLocation, useNavigate } from 'react-router-dom';
 import CheckIcon from '../../assets/check-icon.svg';
+import Loader from '../loader';
 import './template.css';
 import './template-responsive.css';
-import { useEffect } from 'react';
-import Loader from '../loader';
 
-/*
-.step--success {
-	border-radius: 100px;
-	border: 1px solid #008471;
-	background: #008471;
-}
-
-.step--actual {
-	border-radius: 100px;
-	border: 1px solid #ea1b23;
-	background: #ea1b23;
-	color: #ffffff;
-}
-
-.step--future {
-	border-radius: 100px;
-	border: 1px solid #404040;
-	background: #ffffff;
-	color: #404040;
-}
-*/
 const getStepClassName = (step, actual) => {
 	if (step > actual) {
 		return 'step--success';
