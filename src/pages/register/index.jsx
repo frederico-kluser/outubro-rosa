@@ -133,8 +133,8 @@ const Register = () => {
 							<Input placeholder="Data de nascimento" setValue={setBirthday} type="date" value={birthday} />
 						</>
 					)}
-					<Input caption="(DDD) + número" placeholder="Telefone" setValue={setPhone} type="phone" value={phone} />
-					<Input caption="exemplo@nome.com" placeholder="E-mail" setValue={setEmail} type="email" value={email} />
+					<Input placeholder="Telefone" setValue={setPhone} type="phone" value={phone} />
+					<Input placeholder="E-mail" setValue={setEmail} type="email" value={email} />
 				</div>
 				{medicalOrder === 1 && (
 					<>

@@ -42,7 +42,37 @@ const applyMask = (type, value) => {
 	return newValue;
 };
 
-const Input = ({ caption, placeholder, setValue, type, value }) => {
+const getCaption = (type, error, active) => {
+	if (active) {
+		switch (type) {
+			case 'phone':
+			case 'date':
+			case 'cpf':
+				return 'Digite apenas os números';
+			case 'email':
+				return 'nome@exemplo.com';
+			default:
+				return '';
+		}
+	}
+	if (error) {
+		switch (type) {
+			case 'phone':
+				return 'Telefone inválido';
+			case 'date':
+				return 'Data inválida';
+			case 'cpf':
+				return 'CPF inválido';
+			case 'email':
+				return 'Email inválido';
+			default:
+				return '';
+		}
+	}
+	return '';
+};
+
+const Input = ({ placeholder, setValue, type, value }) => {
 	const [active, setActive] = useState(false);
 	const [error, setError] = useState(false);
 
@@ -75,13 +105,14 @@ const Input = ({ caption, placeholder, setValue, type, value }) => {
 			{active && <p>{placeholder}</p>}
 			{error && <p>{placeholder}</p>}
 			{error && <img className="error-image" src={InfoIcon} alt="Icone de error" />}
-			{caption && <span className={`span ${error && 'error'}`}>{caption}</span>}
+			{getCaption(type, error, active) && (
+				<span className={`span ${error && 'error'}`}>{getCaption(type, error, active)}</span>
+			)}
 		</div>
 	);
 };
 
 Input.propTypes = {
-	caption: PropTypes.string,
 	placeholder: PropTypes.string.isRequired,
 	setValue: PropTypes.func.isRequired,
 	type: PropTypes.oneOf(['text', 'number', 'password', 'email', 'phone', 'date', 'cpf']).isRequired,
