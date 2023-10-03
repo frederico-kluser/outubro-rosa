@@ -10,6 +10,19 @@ import useAxios from '../../hooks/useAxios';
 import '../pages-responsive.css';
 import '../pages.css';
 
+const clinicalAnalysis = [
+	'Colesterol frações (LDL, VLDL, HDL)',
+	'Colesterol total',
+	'FSH',
+	'Glicemia',
+	'Hemograma',
+	'T3',
+	'T3L',
+	'T4',
+	'T4L',
+	'TSH',
+];
+
 const Exams = () => {
 	const location = useLocation();
 	const locationState = location.state || {};
@@ -221,16 +234,15 @@ const Exams = () => {
 				</p>
 				<div className="mt-16" />
 				<div className="gap-8">
-					<Checkbox text="Colesterol frações (LDL, VLDL, HDL)" onChange={() => {}} />
-					<Checkbox text="Colesterol total" onChange={() => {}} />
-					<Checkbox text="FSH" onChange={() => {}} />
-					<Checkbox text="Glicemia" onChange={() => {}} />
-					<Checkbox text="Hemograma" onChange={() => {}} />
-					<Checkbox text="T3" onChange={() => {}} />
-					<Checkbox text="T3L" onChange={() => {}} />
-					<Checkbox text="T4" onChange={() => {}} />
-					<Checkbox text="T4L" onChange={() => {}} />
-					<Checkbox text="TSH" onChange={() => {}} />
+					{clinicalAnalysis.map((exam) => (
+						<Checkbox
+							key={exam}
+							text={exam}
+							onChange={(isChecked) => {
+								console.log(exam + ' : ' + isChecked);
+							}}
+						/>
+					))}
 				</div>
 				<div className="mt-24" />
 				<p>Escolha uma hora para esses exames</p>
