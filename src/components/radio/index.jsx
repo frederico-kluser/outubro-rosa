@@ -21,7 +21,7 @@ const Radio = ({ texts, onChange, vertical, initialValue = 0, titles = [] }) => 
 			{texts.map((text, index) => (
 				<div
 					key={text + index}
-					className={`${titles.length ? 'radio-column' : 'radio'} clickEffect`}
+					className={`${titles.length ? 'radio-column' : 'radio'}`}
 					onClick={() => {
 						onChange(index);
 						setSelected(index);

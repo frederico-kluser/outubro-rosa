@@ -32,13 +32,13 @@ const Exams = () => {
 		unit: locationState.unit.unit || '',
 	});
 	const [modalProps, setModalProps] = useState({
-		// title: '',
-		// paragraph: '',
-		// buttonText: '',
+		title: '',
+		paragraph: '',
+		buttonText: '',
 		callback: () => {
 			setModalProps((prev) => ({ ...prev, open: false }));
 		},
-		// open: false,
+		open: false,
 		isError: false,
 	});
 	const [examsList, setExamsList] = useState([]);
@@ -256,7 +256,7 @@ const Exams = () => {
 						});
 						setUrl('/schedule');
 					}}
-					disabled={examsUsed.length === 0}
+					disabled={examsUsed.length === 0 && clinicalAnalysisChecked.length === 0}
 				/>
 			</div>
 		</Template>
