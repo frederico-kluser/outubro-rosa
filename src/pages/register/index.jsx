@@ -99,7 +99,7 @@ const Register = () => {
 	return (
 		<Template modalProps={modalProps} step={0} loader={url && isLoading}>
 			<div className="column-size">
-				<h1>Faça o cadastro</h1>
+				<h2>Faça o cadastro</h2>
 				<div className="mt-24" />
 				<p>
 					Quem vai fazer exames tem <b>pedido médico</b>?

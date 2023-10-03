@@ -20,6 +20,16 @@
 	/* 125% */
 }
 
+.body .container h2 {
+	color: #404040;
+	font-family: 'Signika 700', sans-serif;
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 42px;
+	/* 150% */
+}
+
 .body .container p {
 	color: #404040;
 	/* Desktop/H5 R 16 */

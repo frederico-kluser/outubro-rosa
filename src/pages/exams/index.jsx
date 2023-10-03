@@ -212,7 +212,7 @@ const Exams = () => {
 	return (
 		<Template modalProps={modalProps} step={2} loader={isLoading}>
 			<div className="column-size">
-				<h1>Escolher exames</h1>
+				<h2>Escolher exames</h2>
 				<div className="mt-24" />
 				<p>Confira o pedido médico e selecione os exames</p>
 				<div className="mt-40" />

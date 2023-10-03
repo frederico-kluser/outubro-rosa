@@ -65,7 +65,7 @@ const Unit = () => {
 	return (
 		<Template modalProps={modalProps} step={1} loader={isLoading}>
 			<div className="column-size">
-				<h1>Local de atendimento</h1>
+				<h2>Local de atendimento</h2>
 				<div className="mt-24" />
 				<p>Escolha uma unidade:</p>
 				<div className="mt-16" />

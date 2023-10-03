@@ -5,7 +5,8 @@
 		align-items: center;
 		padding: 24px 16px 40px 16px;
 	}
-	.body .container h1 {
+	.body .container h1,
+	.body .container h2 {
 		font-size: 28px;
 		line-height: 42px;
 	}
