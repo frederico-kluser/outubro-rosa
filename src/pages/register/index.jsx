@@ -79,6 +79,7 @@ const Register = () => {
 						setEmail('');
 						setGender(0);
 					},
+					isError: true,
 				}));
 			}
 			if (error) {

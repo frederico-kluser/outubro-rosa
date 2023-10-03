@@ -27,13 +27,23 @@
 	padding-left: 24px;
 }
 
-.radio p {
-	color: #404040;
+.radio-title {
+	color: #404040 !important;
+	font-family: 'Signika 700', sans-serif !important;
+	font-size: 16px !important;
+	font-style: normal !important;
+	font-weight: 700 !important;
+	line-height: 24px !important;
+	/* 150% */
+}
+
+.radio-paragraph {
+	color: #404040 !important;
 	/* Desktop/H5 R 16 */
-	font-family: 'Signika', sans-serif;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 24px;
+	font-family: 'Signika 400', sans-serif !important;
+	font-size: 16px !important;
+	font-style: normal !important;
+	font-weight: 400 !important;
+	line-height: 24px !important;
 	/* 150% */
 }

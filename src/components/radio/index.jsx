@@ -25,13 +25,9 @@ const Radio = ({ texts, onChange, vertical, initialValue = 0, titles = [] }) => 
 				>
 					<div className={titles.length ? 'radio-line' : ''}>
 						<img src={index === selected ? RadioOn : RadioOff} alt="Icone de radio" />
-						{titles.length ? (
-							<p>
-								<b>{titles[index]}</b>
-							</p>
-						) : null}
+						{titles.length ? <p className="radio-title">{titles[index]}</p> : null}
 					</div>
-					<p className={titles.length ? 'radio-second-line' : ''}>{text}</p>
+					<p className={`radio-paragraph${titles.length ? ' radio-second-line' : ''}`}>{text}</p>
 				</div>
 			))}
 		</div>
