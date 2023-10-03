@@ -72,8 +72,8 @@ const Input = ({ caption, placeholder, setValue, type, value }) => {
 				placeholder={placeholder}
 				type={type === 'cpf' ? 'text' : type}
 			/>
-			{active && <p>{active}</p>}
-			{error && <p>{error}</p>}
+			{active && <p>{placeholder}</p>}
+			{error && <p>{placeholder}</p>}
 			{error && <img className="error-image" src={InfoIcon} alt="Icone de error" />}
 			{caption && <span className={`span ${error && 'error'}`}>{caption}</span>}
 		</div>

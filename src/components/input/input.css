@@ -46,7 +46,7 @@
 	line-height: 18px !important;
 	/* 150% */
 	position: absolute;
-	top: -3px;
+	top: -1px;
 	left: 12px;
 	padding: 0px 4px;
 	background-color: #ffffff;
@@ -76,4 +76,21 @@
 .input-group .error-image {
 	right: 12px;
 	position: absolute;
+}
+
+.input-group .label {
+	align-items: flex-start;
+	background: #ffffff;
+	display: flex;
+	gap: 4px;
+	padding: 0px 4px;
+	position: absolute;
+	/* color: var(--primary-primary-pure, #EA1B23); */
+	/* Desktop/B2 R 12 */
+	font-family: 'Signika 400', sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px;
+	/* 150% */
 }
