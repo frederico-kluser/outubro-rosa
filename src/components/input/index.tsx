@@ -35,6 +35,25 @@ const applyMask = (type, value) => {
 				newValue = newValue.replace(/(\d{2})(\d{3})(\d{5})(\d{4})/, '+$1 ($2) $3-$4');
 			}
 			break;
+		case 'date': // day/month/year
+			const lengthDate = newValue.length;
+
+			if (lengthDate === 3) {
+				newValue = newValue.replace(/(\d{2})/, '$1/');
+			}
+
+			if (lengthDate === 5) {
+				newValue = newValue.replace(/(\d{2})(\d{2})/, '$1/$2/');
+			}
+
+			if (lengthDate === 6) {
+				newValue = newValue.replace(/(\d{2})(\d{2})(\d{1})/, '$1/$2/$3');
+			}
+
+			if (lengthDate === 8) {
+				newValue = newValue.replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
+			}
+			break;
 		default:
 			newValue = value;
 			break;
@@ -72,6 +91,16 @@ const getCaption = (type, error, active) => {
 	return '';
 };
 
+const getInputType = (type) => {
+	switch (type) {
+		case 'cpf':
+		case 'date':
+			return 'text';
+		default:
+			return type;
+	}
+};
+
 const Input = ({ placeholder, setValue, type, value }) => {
 	const [active, setActive] = useState(false);
 	const [error, setError] = useState(false);
@@ -100,7 +129,7 @@ const Input = ({ placeholder, setValue, type, value }) => {
 					setValue(applyMask(type, e.target.value));
 				}}
 				placeholder={placeholder}
-				type={type === 'cpf' ? 'text' : type}
+				type={getInputType(type)}
 			/>
 			{active && <p>{placeholder}</p>}
 			{error && <p>{placeholder}</p>}

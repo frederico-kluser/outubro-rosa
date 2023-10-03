@@ -31,7 +31,7 @@ const validateInput = (type, value) => {
 		case 'phone':
 			return /^\d{10,14}$/.test(value.replace(/\D/g, ''));
 		case 'date':
-			return /^\d{4}-\d{2}-\d{2}$/.test(value);
+			return /^(\d{2})\/(\d{2})\/(\d{2}|\d{4})$/.test(value);
 		case 'cpf':
 			return validateCPF(value.replace(/\D/g, ''));
 		default:
