@@ -43,6 +43,7 @@ const Exams = () => {
 	});
 	const [examsList, setExamsList] = useState([]);
 	const [examsUsed, setExamsUsed] = useState([]);
+	const [clinicalAnalysisChecked, setClinicalAnalysisChecked] = useState([]);
 
 	const { response, error, isLoading } = useAxios({
 		url,
@@ -54,23 +55,6 @@ const Exams = () => {
 		data,
 		baseURL: true,
 	});
-
-	const sendSchedule = async () => {
-		setData({
-			unit: locationState.unit._id,
-			user: {
-				name: locationState.name,
-				email: locationState.email,
-				phone: locationState.phone,
-				cpf: locationState.cpf,
-				birthdate: locationState.birthday,
-				biologicalsex: locationState.gender,
-			},
-			clinicalAnalysis: [], // capturar checkboxs clicados
-			exams: examsUsed,
-		});
-		setUrl('/schedule');
-	};
 
 	const getDuplicatedTimeExams = () => {
 		const timeExamValues = new Set();
@@ -85,24 +69,6 @@ const Exams = () => {
 		});
 
 		return duplicates;
-	};
-
-	const handleFinalizarClick = () => {
-		const duplicatedTimeExams = getDuplicatedTimeExams();
-		if (duplicatedTimeExams.length > 0) {
-			setModalProps((prev) => ({
-				...prev,
-				title: 'Mais de um exame no mesmo horário',
-				paragraph: `Os seguintes horários de exame estão repetidos: ${duplicatedTimeExams.join(', ')}`,
-				buttonText: 'Ok',
-				isError: true,
-				open: true,
-			}));
-			return;
-		}
-
-		console.log(examsUsed);
-		sendSchedule();
 	};
 
 	const componentListExams = () => {
@@ -240,6 +206,11 @@ const Exams = () => {
 							text={exam}
 							onChange={(isChecked) => {
 								console.log(exam + ' : ' + isChecked);
+								if (isChecked) {
+									setClinicalAnalysisChecked((prev) => [...prev, exam]);
+								} else {
+									setClinicalAnalysisChecked((prev) => prev.filter((e) => e !== exam));
+								}
 							}}
 						/>
 					))}
@@ -255,7 +226,41 @@ const Exams = () => {
 				<div className="mt-16" />
 				<div className="gap-16">{componentListExams()}</div>
 				<div className="mt-24" />
-				<Button text="Finalizar" isCondensed onClick={handleFinalizarClick} disabled={examsUsed.length === 0} />
+				<Button
+					text="Finalizar"
+					isCondensed
+					onClick={() => {
+						const duplicatedTimeExams = getDuplicatedTimeExams();
+						if (duplicatedTimeExams.length > 0) {
+							setModalProps((prev) => ({
+								...prev,
+								title: 'Mais de um exame no mesmo horário',
+								paragraph: `Os seguintes horários de exame estão repetidos: ${duplicatedTimeExams.join(', ')}`,
+								buttonText: 'Ok',
+								isError: true,
+								open: true,
+							}));
+							return;
+						}
+
+						console.log(examsUsed);
+						setData({
+							unit: locationState.unit._id,
+							user: {
+								name: locationState.name,
+								email: locationState.email,
+								phone: locationState.phone,
+								cpf: locationState.cpf,
+								birthdate: locationState.birthday,
+								biologicalsex: locationState.gender,
+							},
+							clinicalAnalysis: clinicalAnalysisChecked,
+							exams: examsUsed,
+						});
+						setUrl('/schedule');
+					}}
+					disabled={examsUsed.length === 0}
+				/>
 			</div>
 		</Template>
 	);
