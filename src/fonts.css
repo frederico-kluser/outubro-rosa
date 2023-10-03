@@ -1,24 +1,24 @@
 @font-face {
-	font-family: 'Signika';
+	font-family: 'Signika 700';
 	src: url('/src/assets/fonts/Signika-Bold.ttf') format('truetype');
 }
 
 @font-face {
-	font-family: 'Signika';
+	font-family: 'Signika 300';
 	src: url('/src/assets/fonts/Signika-Light.ttf') format('truetype');
 }
 
 @font-face {
-	font-family: 'Signika';
+	font-family: 'Signika 500';
 	src: url('/src/assets/fonts/Signika-Medium.ttf') format('truetype');
 }
 
 @font-face {
-	font-family: 'Signika';
+	font-family: 'Signika 400';
 	src: url('/src/assets/fonts/Signika-Regular.ttf') format('truetype');
 }
 
 @font-face {
-	font-family: 'Signika';
+	font-family: 'Signika 600';
 	src: url('/src/assets/fonts/Signika-SemiBold.ttf') format('truetype');
 }

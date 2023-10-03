@@ -12,7 +12,7 @@
 .body .container h1 {
 	color: #404040;
 	/* H1 B 40 */
-	font-family: 'Signika', sans-serif;
+	font-family: 'Signika 700', sans-serif;
 	font-size: 40px;
 	font-style: normal;
 	font-weight: 700;
@@ -23,7 +23,7 @@
 .body .container p {
 	color: #404040;
 	/* Desktop/H5 R 16 */
-	font-family: 'Signika', sans-serif;
+	font-family: 'Signika 400', sans-serif;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;

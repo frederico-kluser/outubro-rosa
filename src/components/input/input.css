@@ -39,7 +39,7 @@
 .input-group.error p {
 	color: #ea1b23 !important;
 	/* Desktop/B2 R 12 */
-	font-family: 'Signika', sans-serif;
+	font-family: 'Signika 400', sans-serif;
 	font-size: 12px !important;
 	font-style: normal;
 	font-weight: 400;
@@ -58,7 +58,7 @@
 
 .input-group .span {
 	/* 150% */
-	font-family: 'Signika', sans-serif;
+	font-family: 'Signika 400', sans-serif;
 	bottom: 0;
 	color: #757575;
 	font-size: 12px;
