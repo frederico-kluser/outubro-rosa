@@ -101,3 +101,7 @@ body {
 }
 
 /* 1106 */
+
+.bolder {
+	font-family: 'Signika 700', sans-serif !important;
+}

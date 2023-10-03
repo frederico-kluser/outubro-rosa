@@ -9,6 +9,7 @@ import useAxios from '../../hooks/useAxios';
 import validateInput from '../../utils/validateInput';
 import '../pages-responsive.css';
 import '../pages.css';
+import changeLink from '../../utils/changeLink';
 
 const Register = () => {
 	const location = useLocation();
@@ -38,6 +39,7 @@ const Register = () => {
 		},
 		open: false,
 		isError: false,
+		isLink: true,
 	});
 
 	const { response, error, isLoading } = useAxios({
@@ -65,12 +67,51 @@ const Register = () => {
 				setModalProps((prev) => ({
 					...prev,
 					title: 'Pronto!',
-					paragraph:
-						'Para fazer a consulta, é só acessar o app Grupo Fleury - Saúde Digital nos dias 11 a 13 de outubro, a qualquer hora',
+					paragraph: (
+						<div className="gap-16">
+							<p>
+								Para fazer a consulta, é só acessar o app <b className="bolder">Grupo Fleury - Saúde Digital</b> nos
+								dias <b className="bolder">11 a 13 de outubro</b>, a qualquer hora
+							</p>
+							<div
+								style={{
+									width: '190px',
+									margin: '0 auto',
+								}}
+							>
+								<Button
+									iconName="apple"
+									text="Baixar na App Store"
+									isCondensed
+									onClick={() => {
+										changeLink('https://apps.apple.com/br/app/grupo-fleury-saúde-digital/id1498463954');
+									}}
+								/>
+							</div>
+							<div
+								style={{
+									width: '190px',
+									margin: '0 auto',
+								}}
+							>
+								<Button
+									iconName="google"
+									text="Baixar na Play Store"
+									isCondensed
+									onClick={() => {
+										changeLink(
+											'https://play.google.com/store/apps/details?id=br.com.grupofleury.gds.pacientes&hl=pt_BR&gl=US',
+										);
+									}}
+								/>
+							</div>
+						</div>
+					),
 					buttonText: 'Ok, entendi',
 					open: true,
 					callback: () => {
 						setModalProps((prev) => ({ ...prev, open: false }));
+						setMedicalOrder(0);
 						setUrl('');
 						setName('');
 						setCPF('');
@@ -79,7 +120,7 @@ const Register = () => {
 						setEmail('');
 						setGender(0);
 					},
-					isError: true,
+					isError: false,
 				}));
 			}
 			if (error) {

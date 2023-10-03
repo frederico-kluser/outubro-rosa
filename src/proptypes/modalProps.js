@@ -6,6 +6,7 @@ const modalObjectProp = PropTypes.shape({
 	buttonText: PropTypes.string.isRequired,
 	callback: PropTypes.func.isRequired,
 	open: PropTypes.bool,
+	isLink: PropTypes.bool,
 });
 
 export default modalObjectProp;

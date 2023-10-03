@@ -5,7 +5,7 @@ import InformationIconPurple from '../../assets/information-purple.icon.svg';
 import Button from '../../components/button';
 import './modal.css';
 
-const Modal = ({ title, paragraph, buttonText, callback, open, isError }) => {
+const Modal = ({ title, paragraph, buttonText, callback, open, isError, isLink }) => {
 	return open ? (
 		<div className="modal-background">
 			<div className="modal">
@@ -20,7 +20,8 @@ const Modal = ({ title, paragraph, buttonText, callback, open, isError }) => {
 				</div>
 				<Button
 					text={buttonText}
-					isCondensed
+					isCondensed={!isLink}
+					isLink={isLink}
 					onClick={() => {
 						callback();
 					}}
@@ -38,6 +39,7 @@ Modal.propTypes = {
 	callback: PropTypes.func.isRequired,
 	open: PropTypes.bool,
 	isError: PropTypes.bool,
+	isLink: PropTypes.bool,
 };
 
 export default Modal;

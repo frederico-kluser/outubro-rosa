@@ -20,8 +20,7 @@
 	flex-shrink: 0;
 	gap: 16px;
 	justify-content: center;
-	/* padding: 16px; */
-	padding: 32px;
+	padding: 16px;
 	width: 280px;
 }
 
