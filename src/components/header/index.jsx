@@ -33,7 +33,12 @@ const Header = () => {
 		<>
 			<div className={`menu-mobile mobile ${opened && 'opened'}`}>
 				<h1 className="title">Menu</h1>
-				<div className="menu-item clickEffect">
+				<div
+					className="menu-item clickEffect"
+					onClick={() => {
+						changeLink('/Preparo de exames.pdf');
+					}}
+				>
 					<img src={FileIcon} alt="Icone de instruções de preparo" />
 					<p>Preparo de exames</p>
 				</div>
@@ -69,7 +74,13 @@ const Header = () => {
 						/>
 					</div>
 					<div className="buttons-container">
-						<Button text="Instruções de preparo" isOutline />
+						<Button
+							text="Instruções de preparo"
+							isOutline
+							onClick={() => {
+								changeLink('/Preparo de exames.pdf');
+							}}
+						/>
 						{showExitButton && <Button text="Sair" iconName="exit" isLink onClick={exitFunction} />}
 						{/* <Button text="Sair" iconName="exit" isLink disabled /> */}
 					</div>
