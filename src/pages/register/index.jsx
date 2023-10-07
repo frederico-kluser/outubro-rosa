@@ -183,7 +183,7 @@ const Register = () => {
 						<p>Sexo biológico?</p>
 						<div className="mt-8" />
 						<Radio
-							texts={['Masculino', 'Feminino']}
+							texts={['Feminino', 'Masculino']}
 							onChange={(value) => {
 								setGender(value);
 							}}
