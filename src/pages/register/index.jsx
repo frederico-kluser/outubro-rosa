@@ -69,10 +69,14 @@ const Register = () => {
 					title: 'Pronto!',
 					paragraph: (
 						<div className="gap-16">
-							<p>
-								Para fazer a consulta, é só acessar o app <b className="bolder">Grupo Fleury - Saúde Digital</b> nos
-								dias <b className="bolder">11 a 13 de outubro</b>, a qualquer hora
-							</p>
+							{medicalOrder === 0 ? (
+								<p>Conte mais sobre quem vai fazer exames</p>
+							) : (
+								<p>
+									Para fazer a consulta, é só acessar o app <b className="bolder">Grupo Fleury - Saúde Digital</b> nos
+									dias <b className="bolder">11 a 13 de outubro</b>, a qualquer hora
+								</p>
+							)}
 							<div
 								style={{
 									width: '190px',
@@ -164,7 +168,14 @@ const Register = () => {
 				)}
 				<div className="mt-24 mobile" />
 				<div className="mt-32 desktop" />
-				<p>Conte mais sobre quem vai fazer exames</p>
+				{medicalOrder === 0 ? (
+					<p>Conte mais sobre quem vai fazer exames</p>
+				) : (
+					<p>
+						Preencha os dados para agendar uma teleconsulta entre os dias <b className="bolder">11</b> a{' '}
+						<b className="bolder">13 de outubro:</b>
+					</p>
+				)}
 				<div className="mt-16" />
 				<div className="input-container">
 					<Input placeholder="Nome completo" setValue={setName} type="text" value={name} />
